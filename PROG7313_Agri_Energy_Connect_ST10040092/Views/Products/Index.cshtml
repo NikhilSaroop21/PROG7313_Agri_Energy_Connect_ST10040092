@@ -1,20 +1,116 @@
 ﻿@model IEnumerable<PROG7313_Agri_Energy_Connect_ST10040092.Models.Products>
+
 @{
     ViewData["Title"] = "My Products";
 }
 
-<h2>My Products</h2>
-<a asp-action="Create">Add New Product</a>
+<style>
 
-@foreach (var product in Model)
-{
-    <div style="margin-top:20px; padding:10px; border:1px solid #ccc;">
-        <strong>@product.Name</strong><br />
-        Type: @product.Type<br />
-        Production Date: @product.ProductionDate.ToShortDateString()<br />
-        @if (!string.IsNullOrEmpty(product.ImagePath))
+    /* Global page styling with a light blue background */
+    body {
+        background-color: #3498db; /* Light blue background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Container for page content */
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    /* Title styling */
+    .page-title {
+        font-size: 36px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #3498db;
+    }
+    /* Add product button */
+    .add-link {
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 12px 24px;
+        background-color: #5dade2;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+        .add-link:hover {
+            background-color: #3498db;
+        }
+    /* Grid layout for product cards */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+    }
+    /* Individual product card */
+    .product-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image {
+        max-width: 140px;
+        height: auto;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+    }
+
+    .product-details strong {
+        font-size: 24px;
+        color: #2980b9;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .product-details span {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #444;
+    }
+</style>
+
+<div class="container">
+    <h2 class="page-title">My Products</h2>
+    <a asp-action="Create" class="add-link">+ Add New Product</a>
+
+    <div class="product-grid">
+        @foreach (var product in Model)
         {
-            <img src="@product.ImagePath" alt="Product Image" width="150" />
+            <div class="product-card">
+                @if (!string.IsNullOrEmpty(product.ImagePath))
+                {
+                    <img src="@product.ImagePath" alt="Product Image" class="product-image" />
+                }
+                else
+                {
+                    <img src="~/images/placeholder.png" alt="No Image" class="product-image" />
+                }
+
+                <div class="product-details">
+                    <strong>@product.Name</strong>
+                    <span>Type: @product.Type</span>
+                    <span>Production Date: @product.ProductionDate.ToShortDateString()</span>
+                </div>
+            </div>
         }
     </div>
-}
+</div>

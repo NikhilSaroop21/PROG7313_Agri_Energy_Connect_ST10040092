@@ -1,35 +1,149 @@
 ﻿@model IEnumerable<PROG7313_Agri_Energy_Connect_ST10040092.Models.Products>
+
 @{
     ViewData["Title"] = "All Products";
 }
 
-<h2>All Farmers' Products</h2>
+<style>
+    /* Base styling */
+    body {
+        background-color: #f4f6f8;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    /* Container for the entire page */
+    .page-wrapper {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
 
-<form asp-action="FilterProducts" method="post" class="mb-3">
-    <div class="row">
-        <div class="col-md-3">
-            <input name="type" class="form-control" placeholder="Product Type" />
-        </div>
-        <div class="col-md-3">
-            <input name="fromDate" type="date" class="form-control" />
-        </div>
-        <div class="col-md-3">
-            <input name="toDate" type="date" class="form-control" />
-        </div>
-        <div class="col-md-3">
-            <button type="submit" class="btn btn-primary w-100">Filter</button>
-        </div>
-    </div>
-</form>
+    .page-title {
+        text-align: center;
+        font-size: 34px;
+        font-weight: 800;
+        color: #333;
+        margin-bottom: 40px;
+    }
 
-@foreach (var p in Model)
-{
-    <div style="margin-top:20px; padding:10px; border:1px solid #ccc;">
-        <strong>@p.Name</strong> - @p.Type - @p.ProductionDate.ToShortDateString()<br />
-        Farmer: <em>@p.Farmer?.Name</em> | Email: @p.Farmer?.Email<br />
-        @if (!string.IsNullOrEmpty(p.ImagePath))
+    .filter-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+
+        .filter-form input {
+            padding: 12px;
+            width: 210px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .filter-form button {
+            padding: 12px 24px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+            .filter-form button:hover {
+                background-color: #218838;
+            }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+    }
+    /* Individual product card styling */
+    .product-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-image {
+        max-width: 160px;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        font-size: 24px;
+        font-weight: 800;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .product-meta {
+        font-size: 16px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 8px;
+    }
+
+    .product-details {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+    }
+        /* Email link styling */
+        .product-details a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+            .product-details a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="page-wrapper">
+    <h2 class="page-title">All Farmers' Products</h2>
+
+    <form asp-action="FilterProducts" method="post" class="filter-form">
+        <input name="type" placeholder="Product Type" />
+        <input name="fromDate" type="date" />
+        <input name="toDate" type="date" />
+        <button type="submit">Filter</button>
+    </form>
+
+    <div class="product-grid">
+        @foreach (var p in Model)
         {
-            <img src="@p.ImagePath" width="150" alt="Product Image" />
+            <div class="product-card">
+                @if (!string.IsNullOrEmpty(p.ImagePath))
+                {
+                    <img src="@p.ImagePath" alt="Product Image" class="product-image" />
+                }
+                else
+                {
+                    <img src="~/images/placeholder.png" alt="No Image" class="product-image" />
+                }
+
+                <div class="product-title">@p.Name</div>
+                <div class="product-meta">@p.Type | Produced on: @p.ProductionDate.ToShortDateString()</div>
+                <div class="product-details">
+                    Farmer: <em>@p.Farmer?.Name</em><br />
+                    Email: <a href="mailto:@p.Farmer?.Email">@p.Farmer?.Email</a>
+                </div>
+            </div>
         }
     </div>
-}
+</div>

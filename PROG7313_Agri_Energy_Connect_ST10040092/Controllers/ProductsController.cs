@@ -22,27 +22,29 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
                 _env = env;
             }
 
-            public async Task<IActionResult> Index()
+        // GET: List products created by the currently logged-in farmer
+        public async Task<IActionResult> Index()
             {
                 var userId = _userManager.GetUserId(User);
                 var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
 
                 if (farmer == null)
                     return NotFound("Farmer profile not found.");
-
-                var products = await _context.Products
+            // Fetch only this farmer's products
+            var products = await _context.Products
                     .Where(p => p.FarmerId == farmer.Id)
                     .ToListAsync();
 
                 return View(products);
             }
-
-            public IActionResult Create()
+        // GET: Show the Add Product form
+        public IActionResult Create()
             {
                 return View();
             }
 
-            [HttpPost]
+        // POST: Handle form submission and save new product
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Create(Products product, IFormFile ImageFile)
             {
@@ -50,11 +52,14 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
                 var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
 
                 if (farmer == null)
-                    return NotFound("Farmer profile not found.");
+                    return NotFound(" Profile not found for farmer.");
 
-                if (ImageFile != null && ImageFile.Length > 0)
+
+            // Handle image upload if provided
+            if (ImageFile != null && ImageFile.Length > 0)
                 {
-                    var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
+                // Generate a unique file name and store it in the products image folder
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
                     var filePath = Path.Combine(_env.WebRootPath, "images/products", fileName);
                     Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
 
@@ -65,13 +70,13 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
 
                     product.ImagePath = $"/images/products/{fileName}";
                 }
-
-                product.FarmerId = farmer.Id;
-
-                _context.Products.Add(product);
+            // Link product to the current farmer
+            product.FarmerId = farmer.Id;
+            // Save to database
+            _context.Products.Add(product);
                 await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
+            // Redirect to product list
+            return RedirectToAction(nameof(Index));
             }
         }
     }

@@ -2,7 +2,131 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        background-color: #e6f0fa; /* Light blue background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding: 60px 30px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border-radius: 10px;
+        margin: 30px auto;
+        max-width: 1000px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+        .hero-section h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto 20px auto;
+        }
+
+    .section {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+    .learn-link {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #2980b9;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+        .learn-link:hover {
+            background-color: #21618c;
+        }
+</style>
+
+<div class="hero-section">
+    <h1>Welcome to Agri-Energy Connect</h1>
+    <p>
+        A digital platform empowering South African farmers through sustainable agriculture and renewable energy innovation.
+        Agri-Energy Connect bridges the gap between farmers and green energy providers to foster a smarter, eco-friendly future.
+    </p>
 </div>
+
+<div class="section">
+    <h2>Platform Overview</h2>
+    <p>
+        The Agri-Energy Connect platform is designed to support both the agricultural and energy sectors by offering digital tools
+        for collaboration, education, and commerce. Whether you're a farmer looking to adopt clean energy solutions, or an
+        employee managing farmer profiles and monitoring product data, this platform delivers everything you need in one place.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Core Features</h2>
+    <ul>
+        <li><strong>Sustainable Farming Hub:</strong> Learn sustainable practices including organic farming, water conservation, and soil care.</li>
+        <li><strong>Green Energy Marketplace:</strong> Find and compare solar, wind, and biogas technologies tailored to agriculture.</li>
+        <li><strong>Learning & Development:</strong> Enroll in courses and watch webinars focused on clean energy and smart farming.</li>
+        <li><strong>Project Collaboration:</strong> Partner with other users on joint green initiatives and explore grant opportunities.</li>
+        <li><strong>Role-Based Dashboard:</strong> Farmers and employees each have access to tools and data specific to their responsibilities.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>For Farmers</h2>
+    <p>
+        Farmers can register on the platform and manage their profiles, add new products to their listings, upload photos, and track their production.
+        They can also participate in community forums and explore technologies that help improve farm sustainability and productivity.
+    </p>
+</div>
+
+<div class="section">
+    <h2>For Employees</h2>
+    <p>
+        Employees are responsible for managing farmer registrations, approving new requests, and filtering through product listings.
+        They ensure that data is consistent, accurate, and that the platform supports all active users effectively.
+        <a class="learn-link" href="https://learn.microsoft.com/aspnet/core" target="_blank">
+            Learn more about ASP.NET Core
+        </a>
+    </p>
+
+
+
+</div>
+
+

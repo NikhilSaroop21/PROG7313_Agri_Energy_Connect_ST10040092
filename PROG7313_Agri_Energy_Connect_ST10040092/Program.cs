@@ -5,13 +5,15 @@ using PROG7313_Agri_Energy_Connect_ST10040092.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//  Get the connection string from appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+//  Configure Entity Framework and SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
+// Show detailed exception pages during development
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false; 
@@ -23,7 +25,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-
+// Configure ASP.NET Identity with roles
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -87,14 +89,17 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+app.UseRouting();          // Enable routing system
 
-app.UseAuthentication(); 
-app.UseAuthorization();
 
+app.UseAuthentication(); // Authenticate user (cookie/token/etc)
+app.UseAuthorization();    // Apply role/permission rules
+
+// Define default controller route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+//  Start the application
 app.Run();

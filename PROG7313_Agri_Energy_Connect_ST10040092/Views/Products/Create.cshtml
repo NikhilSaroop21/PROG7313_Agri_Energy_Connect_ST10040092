@@ -1,35 +1,120 @@
 ﻿@model PROG7313_Agri_Energy_Connect_ST10040092.Models.Products
+
 @{
     ViewData["Title"] = "Add Product";
 }
 
-<h2>Add Product</h2>
+<style>
+    body {
+        background-color: #eaf6fb; /* Light blue background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="Type"></label>
-        <input asp-for="Type" class="form-control" />
-        <span asp-validation-for="Type" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="ProductionDate"></label>
-        <input asp-for="ProductionDate" type="date" class="form-control" />
-        <span asp-validation-for="ProductionDate" class="text-danger"></span>
-    </div>
-    <div>
-        <label>Image</label>
-        <input type="file" name="ImageFile" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Save</button>
-</form>
+    .form-wrapper {
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 35px 30px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #3498db; /* Soft light blue top border */
+    }
+
+        .form-wrapper h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: #3498db; /* Light blue heading */
+        }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color:aqua; /* Light blue focus */
+            box-shadow: 0 0 6px rgba(93, 173, 226, 0.4);
+            outline: none;
+        }
+
+        .form-group span {
+            color: #e74c3c;
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: block;
+        }
+
+    .submit-button {
+        width: 100%;
+        padding: 14px;
+        background-color: darkblue; /* Light blue button */
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .submit-button:hover {
+            background-color: #3498db; /* Slightly darker hover */
+        }
+</style>
+
+<div class="form-wrapper">
+    <h2>Add Product</h2>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Type"></label>
+            <input asp-for="Type" />
+            <span asp-validation-for="Type"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProductionDate"></label>
+            <input asp-for="ProductionDate" type="date" />
+            <span asp-validation-for="ProductionDate"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Product Image</label>
+            <input type="file" name="ImageFile" />
+        </div>
+
+        <button type="submit" class="submit-button">Save Product</button>
+    </form>
+</div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }
