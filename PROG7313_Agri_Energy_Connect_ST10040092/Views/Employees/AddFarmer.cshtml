@@ -1,0 +1,36 @@
+﻿@model PROG7313_Agri_Energy_Connect_ST10040092.Models.FarmerViewModel
+@{
+    ViewData["Title"] = "Add Farmer";
+}
+
+<h2>Create New Farmer</h2>
+
+<form asp-action="AddFarmer" method="post">
+    <div>
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Create Farmer</button>
+</form>
+
+@if (TempData["Success"] != null)
+{
+    <p class="text-success mt-3">@TempData["Success"]</p>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

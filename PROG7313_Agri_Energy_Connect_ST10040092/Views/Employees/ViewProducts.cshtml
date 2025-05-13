@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PROG7313_Agri_Energy_Connect_ST10040092.Models.Products>
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<h2>All Farmers' Products</h2>
+
+<form asp-action="FilterProducts" method="post" class="mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <input name="type" class="form-control" placeholder="Product Type" />
+        </div>
+        <div class="col-md-3">
+            <input name="fromDate" type="date" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <input name="toDate" type="date" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+    </div>
+</form>
+
+@foreach (var p in Model)
+{
+    <div style="margin-top:20px; padding:10px; border:1px solid #ccc;">
+        <strong>@p.Name</strong> - @p.Type - @p.ProductionDate.ToShortDateString()<br />
+        Farmer: <em>@p.Farmer?.Name</em> | Email: @p.Farmer?.Email<br />
+        @if (!string.IsNullOrEmpty(p.ImagePath))
+        {
+            <img src="@p.ImagePath" width="150" alt="Product Image" />
+        }
+    </div>
+}

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<PROG7313_Agri_Energy_Connect_ST10040092.Models.Products>
+@{
+    ViewData["Title"] = "My Products";
+}
+
+<h2>My Products</h2>
+<a asp-action="Create">Add New Product</a>
+
+@foreach (var product in Model)
+{
+    <div style="margin-top:20px; padding:10px; border:1px solid #ccc;">
+        <strong>@product.Name</strong><br />
+        Type: @product.Type<br />
+        Production Date: @product.ProductionDate.ToShortDateString()<br />
+        @if (!string.IsNullOrEmpty(product.ImagePath))
+        {
+            <img src="@product.ImagePath" alt="Product Image" width="150" />
+        }
+    </div>
+}
