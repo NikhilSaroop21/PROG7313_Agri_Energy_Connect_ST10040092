@@ -118,9 +118,13 @@ Sample Users (Pre-Seeded):
 
  -Role	,Email	,Password    
                                       
--Employee	     ,employee1@example.com	     ,Employee123 
+-Employee	     ,employee@example.com	     ,Pa$$w0rd! 
+
+-Farmer	       ,farmer@example.com	      ,Pa$$w0rd!   
                                      
- -Farmer	       ,farmer1@example.com	      ,Farmer123   
+ -Farmer	       ,farmer1@example.com	      ,Pa$$w0rd!   
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
