@@ -8,6 +8,7 @@ Agri-Energy Connect is a web application developed as part of the PROG7311 POE a
 
  **Features
 **Authentication & Authorization
+
 1.Role-based login for Farmers and Employees using ASP.NET Identity.
 2.Public registration for Farmers via a Request Account form.
 3.Employees can approve or deny farmer registration requests.
@@ -59,17 +60,24 @@ These scripts ensure all necessary tables are available and populated before the
 
 ***How to Run the Application
 1.Open the solution in Visual Studio 2022.
+
 2.Ensure that SQL Server 2022 is installed and configured.
+
 3.Update the appsettings.json file with your valid SQL connection string.
+
 4.Run the application — it will automatically:
+
 5.Apply database migrations.
+
 6.Seed roles (Farmer, Employee).
+
 7.Create demo users and products.
 
+
 **Seeded Test Accounts
-Role	Email	Password
-Employee	employee1@example.com	Employee123!
-Farmer	farmer1@example.com	Farmer123!
+Role	    Email	                Password
+Employee	employee@email.com	  employee123!
+Farmer	  farmer@email.com	    Farmer123!
 
 
 **User Flow and Navigation Guide
