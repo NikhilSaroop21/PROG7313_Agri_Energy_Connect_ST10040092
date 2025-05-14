@@ -229,13 +229,13 @@ Data/	Includes DbContext, migrations, and data seeding
 Areas/Identity/	Contains Identity UI components (login, register, roles, etc.)
 
 10.  UI/UX Principles
-Responsive Design: Mobile-first layout compatible across devices.
+-Responsive Design: Mobile-first layout compatible across devices.
 
-Performance Optimized: Leverages CDNs for reduced load times.
+-Performance Optimized: Leverages CDNs for reduced load times.
 
-Accessibility Focus: Forms use labels, placeholders, and ARIA tags.
+-Accessibility Focus: Forms use labels, placeholders, and ARIA tags.
 
-Visual Clarity: Clean, consistent theme using Bootswatch templates.
+-Visual Clarity: Clean, consistent theme using Bootswatch templates.
 
 Secure by Design: Built-in CSRF protection and role validation layers.
 
@@ -243,9 +243,11 @@ Secure by Design: Built-in CSRF protection and role validation layers.
 11.  Support & Contributions
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Developer: Nikhil Saroop
-Student Number: ST10040092
-Module: PROG7311 — Programming 3A
+-Developer: Nikhil Saroop
+
+-Student Number: ST10040092
+
+-Module: PROG7311 — Programming 3A
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -286,46 +288,78 @@ Module: PROG7311 — Programming 3A
 This section offers a more detailed explanation for local development setup.
 
 Required Tools:
-Visual Studio 2022 or newer with ASP.NET & Web Development workloads
+-Visual Studio 2022 or newer with ASP.NET & Web Development workloads
 
-.NET SDK 8.0 or later
+-.NET SDK 8.0 or later
 
-SQL Server and SQL Server Management Studio (SSMS 20+)
+ -SQL Server and SQL Server Management Studio (SSMS 20+)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Full Setup Workflow:
-1. Extract or Clone the Project
-Extract the ZIP or clone via Git.
 
-Launch the solution (.sln) in Visual Studio.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------
+
+1. Extract or Clone the Project
+
+---------------------------------
+
+-Extract the ZIP or clone via Git.
+
+-Launch the solution (.sln) in Visual Studio.
+
+----------------------------------
 
 2. Install Dependencies
-Use NuGet Package Manager Console:
+   
+-----------------------------------
 
+-Use NuGet Package Manager Console:
 
-Update-Package -reinstall
+-Update-Package -reinstall
+
+-------------------------------------
+
 3. Configure Database Connection
-In appsettings.json, adjust the connection string:
 
+-------------------------------------
+
+-In appsettings.json, adjust the connection string:
 
 "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AgriEnergyDB;Trusted_Connection=True;"
 
+
+-------------------------------
+
 4. Initialize the Database
-Run EF Core command:
-Update-Database
+   
+-------------------------------
+-Run EF Core command:
+
+-Update-Database
 
 
+------------------------------------
 
 5. Launch the Web Application
-Press Ctrl + F5 or start the app via the toolbar.
 
-Your default browser will open the home page.
+-------------------------------------
+-Press Ctrl + F5 or start the app via the toolbar.
+
+-Your default browser will open the home page.
+
+-------------------------------------
 
 6. Test Functionality
-Use test credentials to explore Farmer and Employee flows.
 
-Ensure all seeded data appears as expected.
+--------------------------------------
+-Use test credentials to explore Farmer and Employee flows.
 
-Tip: Restart SQL Server or verify the connection string if you encounter DB connection errors.
+-Ensure all seeded data appears as expected.
+
+-Tip: Restart SQL Server or verify the connection string if you encounter DB connection errors.
 
 
 
