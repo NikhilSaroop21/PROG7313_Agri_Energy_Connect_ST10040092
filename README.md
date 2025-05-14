@@ -64,7 +64,7 @@ These libraries collectively enable secure authentication, database interaction,
 
 # Farmer Dashboard
 - Submit new product entries (Name, Type, Production Date).
-- View, edit, and remove your own products.
+- View, edit, and remove your products.
 - Filter products by date and category.
 - Responsive interface optimized for mobile and desktop.
 
@@ -108,13 +108,13 @@ Run: Update-Database
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Sample Users (Pre-Seeded):
-
-Role	       Email	                    Password
-
-Employee	   employee1@example.com	   Employee123!
-
-Farmer	     farmer1@example.com	     Farmer123!
-
+--------------------------------------------------------
+| Role	     |   Email	                 |    Password   | 
+--------------------------------------------------------
+| Employee	  |  employee1@example.com	 |   Employee123 !
+--------------------------------------------------------
+| Farmer	   |   farmer1@example.com	    |  Farmer123   !
+--------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Test records are preloaded for demonstration purposes.
@@ -122,31 +122,33 @@ Test records are preloaded for demonstration purposes.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 6.  User Instructions
 
--For Employees:
+1.For Employees:
+
 Navigate to: /Identity/Account/Login
 
-Log in using your Employee credentials.
+-Log in using your Employee credentials.
 
-You will be able to:
+-You will be able to:
 
-Create new farmer profiles
+-Create new farmer profiles
 
-View and filter all product submissions
+-View and filter all product submissions
 
-Review and manage pending farmer access requests
+-Review and manage pending farmer access requests
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- -For Farmers:
-Log in with approved farmer credentials.
+ 1.For Farmers:
 
-Once logged in:
+-Log in with approved farmer credentials.
 
-Add products to your profile
+-Once logged in:
 
-Edit or delete your own submissions
+-Add products to your profile
 
-Filter your list by type or date
+-Edit or delete your submissions
+
+-Filter your list by type or date
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
