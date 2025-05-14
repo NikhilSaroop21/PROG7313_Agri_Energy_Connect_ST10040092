@@ -7,77 +7,132 @@ using PROG7313_Agri_Energy_Connect_ST10040092.Models;
 
 namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
 {
-   
-        [Authorize(Roles = "Farmer")]
-        public class ProductsController : Controller
+    [Authorize(Roles = "Farmer")]
+    public class ProductsController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IWebHostEnvironment _env;
+
+        public ProductsController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IWebHostEnvironment env)
         {
-            private readonly ApplicationDbContext _context;
-            private readonly UserManager<IdentityUser> _userManager;
-            private readonly IWebHostEnvironment _env;
+            _context = context;
+            _userManager = userManager;
+            _env = env;
+        }
 
-            public ProductsController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IWebHostEnvironment env)
-            {
-                _context = context;
-                _userManager = userManager;
-                _env = env;
-            }
-
-        // GET: List products created by the currently logged-in farmer
+        // GET: Product List
         public async Task<IActionResult> Index()
-            {
-                var userId = _userManager.GetUserId(User);
-                var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
+        {
+            var userId = _userManager.GetUserId(User);
+            var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
+            if (farmer == null)
+                return NotFound("Farmer profile not found.");
 
-                if (farmer == null)
-                    return NotFound("Farmer profile not found.");
-            // Fetch only this farmer's products
-            var products = await _context.Products
-                    .Where(p => p.FarmerId == farmer.Id)
-                    .ToListAsync();
+            var products = await _context.Products.Where(p => p.FarmerId == farmer.Id).ToListAsync();
+            return View(products);
+        }
 
-                return View(products);
-            }
-        // GET: Show the Add Product form
+        // GET: Create
         public IActionResult Create()
-            {
-                return View();
-            }
+        {
+            return View();
+        }
 
-        // POST: Handle form submission and save new product
+        // POST: Create
         [HttpPost]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Create(Products product, IFormFile ImageFile)
-            {
-                var userId = _userManager.GetUserId(User);
-                var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Products product, IFormFile ImageFile)
+        {
+            var userId = _userManager.GetUserId(User);
+            var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
+            if (farmer == null)
+                return NotFound("Farmer profile not found.");
 
-                if (farmer == null)
-                    return NotFound(" Profile not found for farmer.");
-
-
-            // Handle image upload if provided
             if (ImageFile != null && ImageFile.Length > 0)
-                {
-                // Generate a unique file name and store it in the products image folder
+            {
                 var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
-                    var filePath = Path.Combine(_env.WebRootPath, "images/products", fileName);
-                    Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
-
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await ImageFile.CopyToAsync(stream);
-                    }
-
-                    product.ImagePath = $"/images/products/{fileName}";
+                var filePath = Path.Combine(_env.WebRootPath, "images/products", fileName);
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(stream);
                 }
-            // Link product to the current farmer
-            product.FarmerId = farmer.Id;
-            // Save to database
-            _context.Products.Add(product);
-                await _context.SaveChangesAsync();
-            // Redirect to product list
-            return RedirectToAction(nameof(Index));
+                product.ImagePath = $"/images/products/{fileName}";
             }
+
+            product.FarmerId = farmer.Id;
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Edit
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+
+        // POST: Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Products updatedProduct, IFormFile ImageFile)
+        {
+            if (id != updatedProduct.Id) return NotFound();
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+
+            product.Name = updatedProduct.Name;
+            product.Type = updatedProduct.Type;
+            product.ProductionDate = updatedProduct.ProductionDate;
+
+            if (ImageFile != null && ImageFile.Length > 0)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
+                var filePath = Path.Combine(_env.WebRootPath, "images/products", fileName);
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(stream);
+                }
+                product.ImagePath = $"/images/products/{fileName}";
+            }
+
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Delete
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+
+        // POST: Delete Confirmed
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
+}
 
+// Compare this snippet from PROG7313_Agri_Energy_Connect_ST10040092/Models/Farmer.cs:
