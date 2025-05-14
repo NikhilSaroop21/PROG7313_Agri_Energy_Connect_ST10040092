@@ -14,7 +14,7 @@
  1. Project Purpose
 
 
-Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application created to bridge the digital divide between South African farmers and renewable energy solution providers. The platform promotes sustainable farming by making information about green technologies easily accessible and giving users the tools to collaborate, learn, and manage agricultural products. With unique dashboards for Farmers and Employees, the system ensures role-specific access and a simplified user experience.
+Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application that bridges the digital divide between South African farmers and renewable energy solution providers. The platform promotes sustainable farming by making information about green technologies easily accessible and giving users the tools to collaborate, learn, and manage agricultural products. With unique dashboards for Farmers and Employees, the system ensures role-specific access and a simplified user experience.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -64,12 +64,12 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
 - Public farmer registration via "Request Account" form (approved by Employees)
 
  Farmer Dashboard
-- Add, edit, delete, and view own products
+- Add, edit, delete, and view your products
 - Filter products by category and production date
 - Clean, mobile-optimized dashboard interface
 
  Employee Dashboard
-- Register new Farmers with secure form
+- Register new Farmers with a secure form
 - View all products from any farmer
 - Filter products by:
   • Farmer name
@@ -107,7 +107,7 @@ To initialize:
 | Employee  | employee1@example.com   | Employee123!   |
 | Farmer    | farmer1@example.com     | Farmer123!     |
 
-📝 Additional test records are seeded for demo and testing purposes.
+- Additional test records are seeded for demo and testing purposes.
 
 
 
@@ -133,7 +133,7 @@ To initialize:
    - Add products (name, category, date)
    - View and manage your existing products
    - Use filters to sort or search your product list
-   - Edit or delete only your own products
+   - Edit or delete only your products
 
 
 
@@ -197,7 +197,7 @@ A full feature walk-through video will show:
  10. UI/UX Considerations
 
 - Mobile-First Design: Works on all devices
-- Low Bandwidth Optimization**: Minimal assets and CDN usage
+- Low Bandwidth Optimization: Minimal assets and CDN usage
 - Visual Themes: Bootswatch theme for clean appearance
 - Accessibility: Forms include placeholders, labels, and ARIA support
 - Security: Role-locked pages, anti-forgery tokens, input sanitization
