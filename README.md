@@ -56,7 +56,7 @@ A secure, role-based ASP.NET Core MVC web application Agri-Energy Connect unites
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
- 4. Core Features (Part 2)
+ 4. Core Features 
 
  Authentication & Authorization
 - Secure login using ASP.NET Identity
@@ -99,7 +99,7 @@ To initialize:
 > Open Visual Studio  
 > Tools → NuGet Package Manager → Package Manager Console
 
-![Uploading tools.png…]()
+
 
 > Run: Update-Database
 
@@ -202,7 +202,7 @@ A full feature walk-through video will show:
 - Mobile-First Design: Works on all devices
 - Low Bandwidth Optimization: Minimal assets and CDN usage
 - Accessibility: Forms include placeholders, labels, and ARIA support
-- Visual Themes: Bootswatch theme for clean appearance
+- Visual Themes: Bootswatch theme for a clean appearance
 - Security: Role-locked pages, anti-forgery tokens, input sanitization
 
 
