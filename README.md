@@ -103,13 +103,17 @@ Initial Setup:
 
 Open Visual Studio
 Tools → NuGet Package Manager → Package Manager Console
+
 Run: Update-Database
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Sample Users (Pre-Seeded):
-Role	Email	Password
-Employee	employee1@example.com	Employee123!
-Farmer	farmer1@example.com	Farmer123!
+
+Role	       Email	                    Password
+
+Employee	   employee1@example.com	   Employee123!
+
+Farmer	     farmer1@example.com	     Farmer123!
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
