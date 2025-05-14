@@ -167,17 +167,17 @@ Navigate to: /Identity/Account/Login
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Watch a full demonstration of:
+-Watch a full demonstration of:
 
-# Role-specific login flow
+-Role-specific login flow
 
-# Farmer and Employee dashboards
+-Farmer and Employee dashboards
 
-# Product submission and filtering
+-Product submission and filtering
 
-# Account approval process
+-Account approval process
 
-# Demo Video on YouTube
+-Demo Video on YouTube
 Note: Replace the link with your actual video.
 
 
@@ -187,7 +187,7 @@ Note: Replace the link with your actual video.
    
 ---------------------------------------------
    
-System Requirements:
+-System Requirements:
 
 ---------------------------------------------
 
@@ -199,22 +199,31 @@ SQL Server and SSMS (v20+)
 
 ----------------------------------------------
 
-Setup Instructions:
+-Setup Instructions:
 
 -----------------------------------------------
 
 1. Clone or Download the Repository
 
+-----------------------------------------------
+
 Open the .sln file in Visual Studio.
 
+-----------------------------------------------
+
 2. Install Dependencies
+
+-----------------------------------------------
 
 -Navigate to:Tools > NuGet Package Manager > Package Manager Console
 
 -Run:Update-Package -reinstall
 
+-----------------------------------------------
+
 3. Update Connection String
 
+-----------------------------------------------
 Edit appsettings.json:
 
 
@@ -222,14 +231,20 @@ Edit appsettings.json:
   "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AgriEnergyDB;Trusted_Connection=True;"
 }
 
+-----------------------------------------------
+
 4. Apply EF Core Migrations
 
+------------------------------------------------
 Run in Package Manager Console:
 
 Update-Database
 
+--------------------------------------------------
+
 5. Run the Application
 
+--------------------------------------------------
 -Press Ctrl + F5 or click the green  button in Visual Studio.
 
 -The application will launch in your browser.
