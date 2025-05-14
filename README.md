@@ -1,243 +1,304 @@
--------------------------------------------------------------
-  README — Agri-Energy Connect Web Application Prototype
-   
- Student Name: Nikhil Saroop
-               
- Student Number: ST10040092  
- 
- Module: PROG7311 — Programming 3A                        
+ Agri-Energy Connect — Web Application Prototype
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Student Name:** Nikhil Saroop  
+**Student Number:** ST10040092  
+**Module:** PROG7311 — Programming 3A  
+**Part:** 2 — Functional Web Application Development  
 
- Part: 2 — Functional Web Application Development         
--------------------------------------------------------------
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 1. Project Purpose
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-A secure, role-based ASP.NET Core MVC web application Agri-Energy Connect unites South African farmers and suppliers of renewable energy solutions.  By offering users the the ability for them to collaborate together, acquire knowledge, and manage agricultural products, in addition to by making understanding on green technologies simple to find, the platform promotes environmentally friendly farming.  The software guarantees role-specific access and an easier user interface with distinct dashboards for Farmers and Employees.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-2. Technologies Used
-   
-
-| Category             | Technology                                | Justification                                                                                  |
-|----------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
-| Framework            | ASP.NET Core MVC                           | Ensures clean separation of logic, UI, and data using the Model-View-Controller pattern.      |
-| Backend ORM          | Entity Framework Core (Code-First)         | Enables efficient database interaction using C# models and supports migrations and seeding.   |
-| Authentication       | ASP.NET Identity (Role-based)              | Provides secure authentication and granular role-based authorization for different users.     |
-| UI Design            | Razor Views + Bootstrap 5 + Bootswatch     | Delivers modern, responsive, and consistent UI with customizable themes and grid systems.     |
-| Development IDE      | Visual Studio 2022                         | Full-featured IDE ideal for .NET development, debugging, scaffolding, and productivity.        |
-| Database Management  | SQL Server (via SSMS 20)                   | Enterprise-grade relational database; supports scalability and works well with EF Core.       |
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-3. Installed Dependencies
-
-// Backend (NuGet) //
-- Microsoft.EntityFrameworkCore.SqlServer  
-- Microsoft.EntityFrameworkCore.Tools  
-- Microsoft.AspNetCore.Identity.EntityFrameworkCore  
-- Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore  
-- Microsoft.AspNetCore.Identity.UI  
-- Microsoft.VisualStudio.Web.CodeGeneration.Design  
-- Microsoft.AspNetCore.Authentication.Cookies  
-- Microsoft.Extensions.Logging.Console  
-
-// Frontend //
-- Bootstrap 5 (via CDN)  
-- Bootswatch (for UI theme, via CDN)  
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
- 4. Core Features 
-
- Authentication & Authorization
-- Secure login using ASP.NET Identity
-- Role-based access control: Employee and Farmer roles
-- Public farmer registration via "Request Account" form (approved by Employees)
-
- Farmer Dashboard
-- Add, edit, delete, and view your products
-- Filter products by category and production date
-- Clean, mobile-optimized dashboard interface
-
- Employee Dashboard
-- Register new Farmers with a secure form
-- View all products from any farmer
-- Filter products by:
-  • Farmer name
-  • Product category
-  • Production date
-- Approve or deny pending farmer registration requests
-
- Data Integrity & Validation
-- Entity-level validation (data annotations)
-- Server-side and client-side input checks
-- Role verification at both controller and view levels
+ 1.  Project Overview
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Agri-Energy Connect is a secure, role-driven web application built with ASP.NET Core MVC. The system serves as a digital platform to bring together South African farmers and renewable energy solution providers. Its main objective is to facilitate knowledge sharing, enable collaborative farming practices, and simplify access to green technologies. The application is designed with two user roles — Farmers and Employees — each with dedicated dashboard views and functionality tailored to their needs. This promotes efficient data management and supports the transition toward environmentally sustainable agriculture.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- 5. Database Setup (SQL Server via SSMS 20)
+ 2.  Technologies Implemented
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Category              | Technology                                | Purpose & Rationale                                                                             |
+|-----------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------|
+| Framework             | ASP.NET Core MVC                           | Follows MVC architecture for clean code separation and easier maintainability.                  |
+| Object Relational Mapper | Entity Framework Core (Code-First)     | Simplifies database creation and access using strongly-typed classes and supports migrations.   |
+| Authentication        | ASP.NET Identity with Roles                | Provides out-of-the-box user management and secure role-based access control.                   |
+| Frontend & Layout     | Razor Views, Bootstrap 5, Bootswatch       | Delivers a responsive, mobile-first UI with customizable themes for consistency and usability.  |
+| Development IDE       | Visual Studio 2022                         | Offers powerful development, debugging, and scaffolding features for ASP.NET Core projects.     |
+| Database              | SQL Server (via SSMS 20)                   | A scalable and enterprise-grade database engine ideal for transactional applications.           |
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 3. 📦 Installed Dependencies
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Backend (via NuGet):
+- `Microsoft.EntityFrameworkCore.SqlServer`  
+- `Microsoft.EntityFrameworkCore.Tools`  
+- `Microsoft.AspNetCore.Identity.EntityFrameworkCore`  
+- `Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore`  
+- `Microsoft.AspNetCore.Identity.UI`  
+- `Microsoft.AspNetCore.Authentication.Cookies`  
+- `Microsoft.Extensions.Logging.Console`  
+- `Microsoft.VisualStudio.Web.CodeGeneration.Design`  
+
+### Frontend:
+- Bootstrap 5 (CDN)
+- Bootswatch Theme (CDN)
+
+These libraries collectively enable secure authentication, database interaction, dynamic UI, and debugging/logging features.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 4. Main Functionalities
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Role-Based Access Control
+- Secure login with ASP.NET Identity.
+- Differentiated user roles: **Farmer** and **Employee**.
+- Farmers must request access; employees can approve or deny requests.
+
+
+# 🌾 Farmer Dashboard
+- Submit new product entries (Name, Type, Production Date).
+- View, edit, and remove your own products.
+- Filter products by date and category.
+- Responsive interface optimized for mobile and desktop.
+
+
+# Employee Dashboard
+- Register and manage farmer profiles.
+- View all submitted products across the platform.
+- Apply filters by farmer, product type, or production date.
+- Approve or reject farmer registration requests.
+
+
+# Validation & Data Quality
+- Uses data annotations for backend validation.
+- Client-side and server-side form checks.
+- Controllers and views secured with role-based authorization.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ 5.  Database Setup (SQL Server via SSMS)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Key Tables:
-- AspNetUsers
-- AspNetRoles
-- AspNetUserRoles
-- FarmerAccountRequests
-- Farmers
-- Products
 
-To initialize:
-> Open Visual Studio  
-> Tools → NuGet Package Manager → Package Manager Console
+---------------
 
+`AspNetUsers`, `AspNetRoles`, `AspNetUserRoles` — for Identity management  
+- `Farmers` — stores farmer information  
+- `Products` — stores product listings  
+- `FarmerAccountRequests` — tracks pending farmer registration requests  
 
+Initial Setup:
 
-> Run: Update-Database
+------------------
 
- Seeded Test Accounts:
+Open Visual Studio
+Tools → NuGet Package Manager → Package Manager Console
+Run: Update-Database
 
-| Role      | Email                   | Password       |
-|-----------|-------------------------|----------------|
-| Employee  | employee1@example.com   | Employee123!   |
-| Farmer    | farmer1@example.com     | Farmer123!     |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sample Users (Pre-Seeded):
+Role	Email	Password
+Employee	employee1@example.com	Employee123!
+Farmer	farmer1@example.com	Farmer123!
 
-- Additional test records are seeded for demo and testing purposes.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Test records are preloaded for demonstration purposes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. 👥 User Instructions
+👨‍💼 For Employees:
+Navigate to: /Identity/Account/Login
+
+Log in using your Employee credentials.
+
+You will be able to:
+
+Create new farmer profiles
+
+View and filter all product submissions
+
+Review and manage pending farmer access requests
+
+👨‍🌾 For Farmers:
+Log in with approved farmer credentials.
+
+Once logged in:
+
+Add products to your profile
+
+Edit or delete your own submissions
+
+Filter your list by type or date
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. 🎥 Demo Video
+Watch a full demonstration of:
+
+Role-specific login flow
+
+Farmer and Employee dashboards
+
+Product submission and filtering
+
+Account approval process
+
+🔗 Demo Video on YouTube
+Note: Replace the link with your actual video.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+8. 🚀 Running the Application Locally
+---------------------------------------------
+   
+System Requirements:
+
+---------------------------------------------
+
+.NET 8.0 SDK
+
+Visual Studio 2022 (with ASP.NET workload)
+
+SQL Server and SSMS (v20+)
+
+----------------------------------------------
+
+Setup Instructions:
+
+-----------------------------------------------
+
+1. Clone or Download the Repository
+
+Open the .sln file in Visual Studio.
+
+2. Install Dependencies
+
+-Navigate to:Tools > NuGet Package Manager > Package Manager Console
+
+-Run:Update-Package -reinstall
+
+3. Update Connection String
+
+Edit appsettings.json:
 
 
- 6. User Instructions
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AgriEnergyDB;Trusted_Connection=True;"
+}
 
-// Employee Instructions //
-1. Navigate to the login page: `/Identity/Account/Login`
-2. Use your Employee credentials.
-3. On the Employee Dashboard, you can:
-   - View all farmers and products
-   - Register new farmer accounts
-   - Filter product lists by farmer, category, or date
-   - Approve/Reject pending farmer sign-up requests
+4. Apply EF Core Migrations
 
-// Farmer Instructions //
-1. Visit the login page.
-2. Enter approved Farmer credentials.
-3. On the Farmer Dashboard, you can:
-   - Add products (name, category, date)
-   - View and manage your existing products
-   - Use filters to sort or search your product list
-   - Edit or delete only your products
+Run in Package Manager Console:
 
+Update-Database
 
+5. Run the Application
 
+-Press Ctrl + F5 or click the green ▶️ button in Visual Studio.
 
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
- 7. Video Demonstration
-
-A full feature walk-through video will show:
-- Login for both roles
-- Dashboard navigation
-- Product management
-- Account request and approval flow
-
- YouTube Link: https://youtu.be/YOUR_UNLISTED_LINK  
-(*Replace this placeholder with your final video URL*)
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
- 8. How to Launch the App
-
-// Prerequisites //
-- .NET 8.0 SDK
-- Visual Studio 2022+
-- SQL Server (SSMS 20 configured)
-
-// Launch Steps //
-1. Download or clone the repository.
-2. Open the solution in Visual Studio 2022.
-3. Open `appsettings.json` and edit:
-   "DefaultConnection": "Server=YOUR_SERVER;Database=AgriEnergyDB;Trusted_Connection=True;"
-4. Open the Package Manager Console and run:
-   > Update-Database
-5. Press `Ctrl + F5` to build and launch the web app in your browser.
+-The application will launch in your browser.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+9.  Project Structure Overview
+Path	Purpose
+Models/	Contains entity classes (e.g., Farmer, Product)
+Controllers/	Manages request-response logic and page routing
+Views/	Razor view files for rendering the frontend
+Data/	Includes DbContext, migrations, and data seeding
+Areas/Identity/	Contains Identity UI components (login, register, roles, etc.)
 
- 
- 9. Project Structure
+10. 🖌️ UI/UX Principles
+Responsive Design: Mobile-first layout compatible across devices.
 
-| Folder / File        | Description                                      |
-|----------------------|--------------------------------------------------|
-| Models/              | Defines EF Core entities: Farmer, Product, etc.  |
-| Controllers/         | Logic for handling requests and routing          |
-| Views/               | Razor Pages for rendering user interface         |
-| Data/                | ApplicationDbContext, configuration, seeding     |
-| Areas/Identity/      | Identity area for user authentication and login  |
+Performance Optimized: Leverages CDNs for reduced load times.
+
+Accessibility Focus: Forms use labels, placeholders, and ARIA tags.
+
+Visual Clarity: Clean, consistent theme using Bootswatch templates.
+
+Secure by Design: Built-in CSRF protection and role validation layers.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11. 🙋 Support & Contributions
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Developer: Nikhil Saroop
+Student Number: ST10040092
+Module: PROG7311 — Programming 3A
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+12. 📚 References
 
- 10. UI/UX Considerations
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Microsoft Learn (2025). ASP.NET Identity Overview
 
-- Mobile-First Design: Works on all devices
-- Low Bandwidth Optimization: Minimal assets and CDN usage
-- Accessibility: Forms include placeholders, labels, and ARIA support
-- Visual Themes: Bootswatch theme for a clean appearance
-- Security: Role-locked pages, anti-forgery tokens, input sanitization
+Microsoft Learn (2024). Entity Framework Core in ASP.NET MVC
+
+Bootswatch (2025). Free Bootstrap Themes
 
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13. 🔧 Developer Setup Guide (Extended)
+This section offers a more detailed explanation for local development setup.
+
+Required Tools:
+Visual Studio 2022 or newer with ASP.NET & Web Development workloads
+
+.NET SDK 8.0 or later
+
+SQL Server and SQL Server Management Studio (SSMS 20+)
+
+Full Setup Workflow:
+1. Extract or Clone the Project
+Extract the ZIP or clone via Git.
+
+Launch the solution (.sln) in Visual Studio.
+
+2. Install Dependencies
+Use NuGet Package Manager Console:
+
+
+Update-Package -reinstall
+3. Configure Database Connection
+In appsettings.json, adjust the connection string:
+
+
+"DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AgriEnergyDB;Trusted_Connection=True;"
+
+4. Initialize the Database
+Run EF Core command:
+Update-Database
 
 
 
+5. Launch the Web Application
+Press Ctrl + F5 or start the app via the toolbar.
 
- 11. Contributors and Support
+Your default browser will open the home page.
 
-Developer: Nikhil Saroop  
-Student Number: ST10040092  
-Module: PROG7311 — Programming 3A  
+6. Test Functionality
+Use test credentials to explore Farmer and Employee flows.
 
+Ensure all seeded data appears as expected.
 
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- 12. References
-
-- Microsoft Learn. (2025). Introduction to ASP.NET Identity  
-  https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity  
-  [Accessed 6 May 2025]
-
-- Microsoft Learn. (2024). EF Core in ASP.NET MVC  
-  https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0  
-  [Accessed 6 May 2025]
-
-- Bootswatch. (2025). Free Bootstrap Themes  
-  https://bootswatch.com  
-  [Accessed 6 May 2025]
-
+Tip: Restart SQL Server or verify the connection string if you encounter DB connection errors.
 
 
 
