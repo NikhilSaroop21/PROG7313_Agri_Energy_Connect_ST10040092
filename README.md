@@ -62,7 +62,7 @@ These libraries collectively enable secure authentication, database interaction,
 - Farmers must request access; employees can approve or deny requests.
 
 
-# 🌾 Farmer Dashboard
+# Farmer Dashboard
 - Submit new product entries (Name, Type, Production Date).
 - View, edit, and remove your own products.
 - Filter products by date and category.
@@ -92,10 +92,10 @@ Key Tables:
 
 ---------------
 
-`AspNetUsers`, `AspNetRoles`, `AspNetUserRoles` — for Identity management  
-- `Farmers` — stores farmer information  
-- `Products` — stores product listings  
-- `FarmerAccountRequests` — tracks pending farmer registration requests  
+AspNetUsers, AspNetRoles, AspNetUserRoles — for Identity management  
+- Farmers — stores farmer information  
+- Products — stores product listings  
+- FarmerAccountRequests — tracks pending farmer registration requests  
 
 Initial Setup:
 
@@ -116,8 +116,9 @@ Farmer	farmer1@example.com	Farmer123!
 Test records are preloaded for demonstration purposes.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-6. 👥 User Instructions
-👨‍💼 For Employees:
+6.  User Instructions
+
+-For Employees:
 Navigate to: /Identity/Account/Login
 
 Log in using your Employee credentials.
@@ -130,7 +131,9 @@ View and filter all product submissions
 
 Review and manage pending farmer access requests
 
-👨‍🌾 For Farmers:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ -For Farmers:
 Log in with approved farmer credentials.
 
 Once logged in:
@@ -154,7 +157,7 @@ Product submission and filtering
 
 Account approval process
 
-🔗 Demo Video on YouTube
+ Demo Video on YouTube
 Note: Replace the link with your actual video.
 
 
@@ -206,7 +209,7 @@ Update-Database
 
 5. Run the Application
 
--Press Ctrl + F5 or click the green ▶️ button in Visual Studio.
+-Press Ctrl + F5 or click the green  button in Visual Studio.
 
 -The application will launch in your browser.
 
@@ -221,7 +224,7 @@ Views/	Razor view files for rendering the frontend
 Data/	Includes DbContext, migrations, and data seeding
 Areas/Identity/	Contains Identity UI components (login, register, roles, etc.)
 
-10. 🖌️ UI/UX Principles
+10.  UI/UX Principles
 Responsive Design: Mobile-first layout compatible across devices.
 
 Performance Optimized: Leverages CDNs for reduced load times.
@@ -233,7 +236,7 @@ Visual Clarity: Clean, consistent theme using Bootswatch templates.
 Secure by Design: Built-in CSRF protection and role validation layers.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-11. 🙋 Support & Contributions
+11.  Support & Contributions
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Developer: Nikhil Saroop
@@ -243,7 +246,7 @@ Module: PROG7311 — Programming 3A
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-12. 📚 References
+12.  References
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Microsoft Learn (2025). ASP.NET Identity Overview
@@ -255,7 +258,7 @@ Bootswatch (2025). Free Bootstrap Themes
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-13. 🔧 Developer Setup Guide (Extended)
+13.  Developer Setup Guide (Extended)
 This section offers a more detailed explanation for local development setup.
 
 Required Tools:
