@@ -1,13 +1,17 @@
-📘 README — Agri-Energy Connect Web Application Prototype
-Student Name: Nikhil Saroop
-Student Number: ST10040092
-Module: PROG7311 — Programming 3A
-Part: 2 — Functional Web Application Development
+-------------------------------------------------------------
+-  README — Agri-Energy Connect Web Application Prototype   -
+-  Student Name: Nikhil Saroop                              -
+-  Student Number: ST10040092                               -
+-  Module: PROG7311 — Programming 3A                        -
+-  Part: 2 — Functional Web Application Development         -
+-------------------------------------------------------------
 
-🌍 1. Project Purpose
-Agri-Energy Connect is a role-based ASP.NET Core MVC web application developed to empower South African farmers and green energy providers by offering a secure, educational, and collaborative platform. It supports sustainable agriculture by simplifying access to clean energy solutions and promoting rural development through digital innovation.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//1. Project Purpose //
+Agri-Energy Connect is a role-based ASP.NET Core MVC web application developed to empower South African farmers and green energy providers by offering a secure, educational, and collaborative platform. It supports sustainable agriculture by simplifying access to clean energy solutions and promoting rural development through digital innovation.                                       -
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-💡 2. Technologies Used
+ 2. Technologies Used
 Category	Technology
 Framework	ASP.NET Core MVC
 Backend ORM	Entity Framework Core (Code-First)
@@ -110,7 +114,7 @@ A video walk-through of the application is available to show how each feature wo
 ▶️ YouTube Video: https://youtu.be/YOUR_UNLISTED_LINK
 (Replace the URL with your actual video link once uploaded)
 
-🛠️ 7. How to Run the Application
+ //7. How to Run the Application//
 Prerequisites:
 .NET 8 SDK
 
@@ -118,7 +122,7 @@ Visual Studio 2022 or newer
 
 SQL Server with SSMS 20
 
-Steps:
+*Steps:*
 Clone or download the solution.
 
 Open the solution in Visual Studio 2022.
@@ -137,7 +141,7 @@ Edit
 Update-Database
 Press Ctrl + F5 to launch the app.
 
-🖼️ 8. Project Structure
+//8.Project Structure//
 Folder / File	Description
 Models/	Entity classes: Product, Farmer, etc.
 Controllers/	Logic for each role and dashboard
@@ -145,7 +149,7 @@ Views/	Razor Pages for UI interactions
 Data/	ApplicationDbContext and EF configurations
 Areas/Identity/	ASP.NET Identity login, register, and auth pages
 
-📱 9. UI/UX Considerations
+//9. UI/UX Considerations//
 Responsive Design: Optimized for mobile and desktop
 
 Low-bandwidth users: Lightweight pages and caching
@@ -154,35 +158,24 @@ Visual clarity: Icons, colors, and layout follow modern UX best practices
 
 Security by design: Multi-role separation, form validation, and secure navigation
 
-📌 10. Planned Enhancements
-Admin dashboard with analytics
 
-CSV product import/export
-
-Community Q&A and support chat
-
-Multi-language support (Zulu, Xhosa, Afrikaans)
 
 Cloud sync (Firebase integration)
 
-🧑‍💻 11. Contributors & Support
+//10. Contributors and Support//
 Student Developer: Nikhil Saroop
-
 Module: PROG7311 Programming 3A
 
-Lecturer/Coordinator: [Add if required]
 
-For support or feedback, please contact via student portal.
-
-📚 12. References
+//11. References//
 Microsoft Learn. 2025. Introduction to ASP.NET Identity. [Online]
 Available at: https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity
 [Accessed 6 May 2025].
 
 Microsoft Learn. 2024. Tutorial: Get started with EF Core in an ASP.NET MVC web app. [Online]
 Available at: https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0
-[Accessed 5 May 2025].
+[Accessed 6 May 2025].
 
 Bootswatch, 2025. Free themes for Bootstrap. [Online]
 Available at: https://bootswatch.com
-[Accessed 8 May 2025].
+[Accessed 6 May 2025].
