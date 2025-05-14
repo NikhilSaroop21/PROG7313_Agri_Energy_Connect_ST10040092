@@ -97,7 +97,10 @@ Key Tables:
 
 To initialize:
 > Open Visual Studio  
-> Tools → NuGet Package Manager → Package Manager Console  
+> Tools → NuGet Package Manager → Package Manager Console
+
+![Uploading tools.png…]()
+
 > Run: Update-Database
 
  Seeded Test Accounts:
