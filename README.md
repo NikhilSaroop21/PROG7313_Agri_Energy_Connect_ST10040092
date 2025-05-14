@@ -7,7 +7,7 @@
 -------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// 1. Project Purpose //
+ 1. Project Purpose 
 Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application created to bridge the digital divide between South African farmers and renewable energy solution providers. The platform promotes sustainable farming by making information about green technologies easily accessible and giving users the tools to collaborate, learn, and manage agricultural products. With unique dashboards for Farmers and Employees, the system ensures role-specific access and a simplified user experience.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-📦 3. Installed Dependencies
+3. Installed Dependencies
 
 // Backend (NuGet) //
 - Microsoft.EntityFrameworkCore.SqlServer  
@@ -48,19 +48,19 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-🎯 4. Core Features (Part 2)
+ 4. Core Features (Part 2)
 
-✅ Authentication & Authorization
+ Authentication & Authorization
 - Secure login using ASP.NET Identity
 - Role-based access control: Employee and Farmer roles
 - Public farmer registration via "Request Account" form (approved by Employees)
 
-👨‍🌾 Farmer Dashboard
+ Farmer Dashboard
 - Add, edit, delete, and view own products
 - Filter products by category and production date
 - Clean, mobile-optimized dashboard interface
 
-🧑‍💼 Employee Dashboard
+ Employee Dashboard
 - Register new Farmers with secure form
 - View all products from any farmer
 - Filter products by:
@@ -69,7 +69,7 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
   • Production date
 - Approve or deny pending farmer registration requests
 
-🛡️ Data Integrity & Validation
+ Data Integrity & Validation
 - Entity-level validation (data annotations)
 - Server-side and client-side input checks
 - Role verification at both controller and view levels
@@ -77,7 +77,7 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🗃️ 5. Database Setup (SQL Server via SSMS 20)
+ 5. Database Setup (SQL Server via SSMS 20)
 
 Key Tables:
 - AspNetUsers
@@ -92,7 +92,7 @@ To initialize:
 > Tools → NuGet Package Manager → Package Manager Console  
 > Run: Update-Database
 
-✅ Seeded Test Accounts:
+ Seeded Test Accounts:
 
 | Role      | Email                   | Password       |
 |-----------|-------------------------|----------------|
@@ -107,7 +107,7 @@ To initialize:
 
 
 
-🧭 6. User Instructions
+ 6. User Instructions
 
 // Employee Instructions //
 1. Navigate to the login page: `/Identity/Account/Login`
@@ -136,7 +136,7 @@ To initialize:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-🎥 7. Video Demonstration
+ 7. Video Demonstration
 
 A full feature walk-through video will show:
 - Login for both roles
@@ -144,14 +144,14 @@ A full feature walk-through video will show:
 - Product management
 - Account request and approval flow
 
-▶️ YouTube Link: https://youtu.be/YOUR_UNLISTED_LINK  
+ YouTube Link: https://youtu.be/YOUR_UNLISTED_LINK  
 (*Replace this placeholder with your final video URL*)
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-🛠️ 8. How to Launch the App
+ 8. How to Launch the App
 
 // Prerequisites //
 - .NET 8.0 SDK
@@ -171,7 +171,8 @@ A full feature walk-through video will show:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-📁 9. Project Structure
+ 
+ 9. Project Structure
 
 | Folder / File        | Description                                      |
 |----------------------|--------------------------------------------------|
@@ -185,7 +186,7 @@ A full feature walk-through video will show:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-🎨 10. UI/UX Considerations
+ 10. UI/UX Considerations
 
 - **Mobile-First Design**: Works on all devices
 - **Low Bandwidth Optimization**: Minimal assets and CDN usage
@@ -200,7 +201,7 @@ A full feature walk-through video will show:
 
 
 
-👨‍💼 11. Contributors and Support
+ 11. Contributors and Support
 
 Developer: Nikhil Saroop  
 Student Number: ST10040092  
@@ -212,7 +213,7 @@ For questions or assistance, please use the IIE student portal or contact your l
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-📚 12. References
+ 12. References
 
 - Microsoft Learn. (2025). *Introduction to ASP.NET Identity*  
   https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity  
