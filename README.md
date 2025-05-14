@@ -1,19 +1,26 @@
 -------------------------------------------------------------
--  README — Agri-Energy Connect Web Application Prototype   -
--  Student Name: Nikhil Saroop                              -
--  Student Number: ST10040092                               -
--  Module: PROG7311 — Programming 3A                        -
--  Part: 2 — Functional Web Application Development         -
+  README — Agri-Energy Connect Web Application Prototype
+   
+ Student Name: Nikhil Saroop
+               
+ Student Number: ST10040092  
+ 
+ Module: PROG7311 — Programming 3A                        
+
+ Part: 2 — Functional Web Application Development         
 -------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 1. Project Purpose 
+ 1. Project Purpose
+
+
 Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application created to bridge the digital divide between South African farmers and renewable energy solution providers. The platform promotes sustainable farming by making information about green technologies easily accessible and giving users the tools to collaborate, learn, and manage agricultural products. With unique dashboards for Farmers and Employees, the system ensures role-specific access and a simplified user experience.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Technologies Used
+   
 
 | Category             | Technology                                | Justification                                                                                  |
 |----------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -43,7 +50,8 @@ Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application cre
 // Frontend //
 - Bootstrap 5 (via CDN)  
 - Bootswatch (for UI theme, via CDN)  
-- jQuery (for form validation, via CDN)  
+
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
