@@ -14,7 +14,7 @@
  1. Project Purpose
 
 
-Agri-Energy Connect is a secure, role-based ASP.NET Core MVC web application that bridges the digital divide between South African farmers and renewable energy solution providers. The platform promotes sustainable farming by making information about green technologies easily accessible and giving users the tools to collaborate, learn, and manage agricultural products. With unique dashboards for Farmers and Employees, the system ensures role-specific access and a simplified user experience.
+A secure, role-based ASP.NET Core MVC web application Agri-Energy Connect unites South African farmers and suppliers of renewable energy solutions.  By offering users the the ability for them to collaborate together, acquire knowledge, and manage agricultural products, in addition to by making understanding on green technologies simple to find, the platform promotes environmentally friendly farming.  The software guarantees role-specific access and an easier user interface with distinct dashboards for Farmers and Employees.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -198,8 +198,8 @@ A full feature walk-through video will show:
 
 - Mobile-First Design: Works on all devices
 - Low Bandwidth Optimization: Minimal assets and CDN usage
-- Visual Themes: Bootswatch theme for clean appearance
 - Accessibility: Forms include placeholders, labels, and ARIA support
+- Visual Themes: Bootswatch theme for clean appearance
 - Security: Role-locked pages, anti-forgery tokens, input sanitization
 
 
