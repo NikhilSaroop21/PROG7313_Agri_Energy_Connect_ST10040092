@@ -109,7 +109,7 @@ Run: Update-Database
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Sample Users (Pre-Seeded):
 
- Role	         Email	                      Password    
+ -Role	,Email	,Password    
                                       
 -Employee	     employee1@example.com	     Employee123 
                                      
@@ -224,11 +224,11 @@ Update-Database
 
 9.  Project Structure Overview
 Path	Purpose
-Models/	Contains entity classes (e.g., Farmer, Product)
-Controllers/	Manages request-response logic and page routing
-Views/	Razor view files for rendering the frontend
-Data/	Includes DbContext, migrations, and data seeding
-Areas/Identity/	Contains Identity UI components (login, register, roles, etc.)
+-Models/	Contains entity classes (e.g., Farmer, Product)
+-Controllers/	Manages request-response logic and page routing
+-Views/	Razor view files for rendering the frontend
+-Data/	Includes DbContext, migrations, and data seeding
+-Areas/Identity/	Contains Identity UI components (login, register, roles, etc.)
 
 10.  UI/UX Principles
 -Responsive Design: Mobile-first layout compatible across devices.
