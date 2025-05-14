@@ -19,6 +19,7 @@ Authentication	ASP.NET Identity (Role-based)
 UI Design	Razor Views + Bootstrap 5 + Bootswatch
 Development IDE	Visual Studio 2022
 Database Management	SQL Server (via SSMS 20)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 🎯 3. Core Features (Part 2)
 ✅ Authentication & Authorization
@@ -59,6 +60,8 @@ Role restrictions ensure that users can only manage their own data
 
 Filtering logic allows multi-criteria product searches
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 🗃️ 4. Database Setup (SQL Server via SSMS 20)
 Required Tables
 You can use Entity Framework migrations or run scripts manually. The application uses these key tables:
@@ -85,6 +88,8 @@ Farmer	farmer1@example.com	Farmer123!
 
 👥 Additional dummy data is seeded automatically for testing.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 🧭 5. Navigation Guide (User Flow)
 For Employees:
 Login via /Identity/Account/Login
@@ -107,6 +112,9 @@ Add and manage products
 Use filters for searching
 
 View only their own submissions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 🎥 6. Video Demonstration
 A video walk-through of the application is available to show how each feature works:
