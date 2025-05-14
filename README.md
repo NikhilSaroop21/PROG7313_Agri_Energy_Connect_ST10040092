@@ -35,7 +35,7 @@ Agri-Energy Connect is a secure, role-driven web application built with ASP.NET 
  3.  Installed Dependencies
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-* Backend (via NuGet):
+ Backend (via NuGet):
 - `Microsoft.EntityFrameworkCore.SqlServer`  
 - `Microsoft.EntityFrameworkCore.Tools`  
 - `Microsoft.AspNetCore.Identity.EntityFrameworkCore`  
