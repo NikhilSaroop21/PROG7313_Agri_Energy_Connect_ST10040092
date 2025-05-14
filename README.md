@@ -196,11 +196,11 @@ A full feature walk-through video will show:
 
  10. UI/UX Considerations
 
-- **Mobile-First Design**: Works on all devices
-- **Low Bandwidth Optimization**: Minimal assets and CDN usage
-- **Visual Themes**: Bootswatch theme for clean appearance
-- **Accessibility**: Forms include placeholders, labels, and ARIA support
-- **Security**: Role-locked pages, anti-forgery tokens, input sanitization
+- Mobile-First Design: Works on all devices
+- Low Bandwidth Optimization**: Minimal assets and CDN usage
+- Visual Themes: Bootswatch theme for clean appearance
+- Accessibility: Forms include placeholders, labels, and ARIA support
+- Security: Role-locked pages, anti-forgery tokens, input sanitization
 
 
 
@@ -215,7 +215,7 @@ Developer: Nikhil Saroop
 Student Number: ST10040092  
 Module: PROG7311 — Programming 3A  
 
-For questions or assistance, please use the IIE student portal or contact your lecturer.
+
 
 
 
@@ -223,15 +223,15 @@ For questions or assistance, please use the IIE student portal or contact your l
 
  12. References
 
-- Microsoft Learn. (2025). *Introduction to ASP.NET Identity*  
+- Microsoft Learn. (2025). Introduction to ASP.NET Identity  
   https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity  
   [Accessed 6 May 2025]
 
-- Microsoft Learn. (2024). *EF Core in ASP.NET MVC*  
+- Microsoft Learn. (2024). EF Core in ASP.NET MVC  
   https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0  
   [Accessed 6 May 2025]
 
-- Bootswatch. (2025). *Free Bootstrap Themes*  
+- Bootswatch. (2025). Free Bootstrap Themes  
   https://bootswatch.com  
   [Accessed 6 May 2025]
 
