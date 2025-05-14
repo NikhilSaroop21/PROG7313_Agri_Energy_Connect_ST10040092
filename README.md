@@ -166,17 +166,18 @@ Navigate to: /Identity/Account/Login
 7.  Demo Video
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Watch a full demonstration of:
 
-Role-specific login flow
+# Watch a full demonstration of:
 
-Farmer and Employee dashboards
+# Role-specific login flow
 
-Product submission and filtering
+# Farmer and Employee dashboards
 
-Account approval process
+# Product submission and filtering
 
- Demo Video on YouTube
+# Account approval process
+
+# Demo Video on YouTube
 Note: Replace the link with your actual video.
 
 
