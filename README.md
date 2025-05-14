@@ -122,7 +122,7 @@ Sample Users (Pre-Seeded):
 
 -Farmer	       ,farmer@example.com	      ,Pa$$w0rd!   
                                      
- -Farmer	       ,farmer1@example.com	      ,Pa$$w0rd!   
+ -Farmer	       ,farmer2@example.com	      ,Pa$$w0rd!   
 
 
 
