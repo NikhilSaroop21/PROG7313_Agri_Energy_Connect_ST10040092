@@ -1,166 +1,148 @@
-Agri-Energy Connect
+ Agri-Energy Connect
 Student ID: ST10040092
-Module: Programming 3A — PROG7311
-Part: 2 — Web Application Prototype
+Module: Programming 3A (PROG7311)
+Assignment Part: 2 – Web App Prototype
 
-**Overview
-Agri-Energy Connect is a web application developed for the PROG7311 POE assignment. 
+📘 Summary
+Agri-Energy Connect is a web-based system developed to aid sustainable farming initiatives in South Africa. The platform connects two main user roles—Farmers and Employees—through a secure, role-sensitive environment where farming products can be managed collaboratively.
 
-The platform aims to support sustainable farming in South Africa by enabling two types of users — Farmers and Employees — to collaborate and manage agricultural product information via a secure, role-based web platform.
+This solution streamlines agricultural record-keeping and empowers users to interact efficiently through features like login control, product management, and data filtering, all within a responsive, modern interface.
 
- **Features
-**Authentication & Authorization
+🔐 User Access & Security
+ASP.NET Identity is used for secure authentication and role management.
 
-1.Role-based login for Farmers and Employees using ASP.NET Identity.
+Farmers can submit account requests via an online form.
 
-2.Public registration for Farmers via a Request Account form.
+Employees log in to review and decide on these requests (approve or reject).
 
-3.Employees can approve or deny farmer registration requests.
+🧑‍🌾 Farmer Dashboard
+When a Farmer logs in, they are taken to a dashboard tailored to their activities. Features include:
 
-**Employee Capabilities
+Viewing only their own product entries.
 
-Access to an Employee Dashboard with:
+Adding, modifying, or deleting their products.
 
-1.List of all Farmer Profiles
+Using filters to search products by:
 
-2.Ability to register new Farmers (secure form with no autofill).
+Category
 
-3.Product management system to view and filter products across farmers by:
+Production date
 
-4.Farmer name
+⚠ Farmers cannot see or interact with data belonging to other users.
 
-5.Product category
+🧑‍💼 Employee Dashboard
+Employees access an administrative panel with expanded privileges:
 
-6.Date range
+Access to all registered farmer profiles.
 
-7.Ability to approve or deny pending Farmer registration requests.
+Ability to securely register new farmers (form autofill is turned off).
 
+Viewing and filtering all products across the platform using:
 
-**Farmer Capabilities
-1.Access to a personalized Farmer Dashboard with:
+Farmer names
 
-2.View of their own products.
+Product categories
 
-3.Filters (by category or production date) to sort products.
+Specific date ranges
 
-4.CRUD operations on their products:
+Approving or denying farmer registration requests.
 
-5.Add new products.
+🛠 Tech Stack Overview
+Backend: ASP.NET Core MVC
 
-6.Edit existing products.
+Database Layer: Entity Framework Core + SQL Server 2022
 
-7.Delete products.
+Authentication: ASP.NET Identity
 
-8.View only their own data; no access to other farmers' data.
+Frontend: Razor Pages and Views
 
+UI Styling: Bootstrap + Bootswatch (for themed responsiveness)
 
- **Data Accuracy & Validation
-1.Input validation ensures correct product data entry.
-2.Role-based access ensures only rightful owners (Farmers) can edit or delete their products.
-3.Filters allow for flexible searching by one or multiple criteria.
+IDE Used: Visual Studio 2022
 
-** Technologies Used
-1.ASP.NET Core MVC for the web framework.
+🗄 Database Essentials
+Before launching the application:
 
-2.Entity Framework Core with SQL Server 2022 for data storage.
+Set up your SQL Server 2022 environment.
 
-3.ASP.NET Identity for authentication and authorization.
+Either allow EF Core to auto-migrate or manually run the following scripts:
 
-3.Razor Pages and Razor Views for dynamic content rendering.
+AspNetRoles
 
-4.Bootstrap for responsive UI styling.
+AspNetUsers
 
-5.Visual Studio 2022 for development.
+AspNetUserRoles
 
-**Database Setup
-1.Before running the application, ensure your SQL Server environment is ready. This project includes SQL scripts that must be executed manually if automatic migrations are not being used.
+Products
 
-2.Required Tables
-3.Execute the following scripts in this order to create and seed the database correctly:
+These create the necessary schema and seed initial records for testing.
 
-4.AspNetRoles – Defines application roles such as Farmer and Employee.
+🚀 How to Launch the App
+Load the solution in Visual Studio 2022.
 
-5.AspNetUsers – Stores user credentials and login information.
+Confirm SQL Server 2022 is installed and operational.
 
-6.AspNetUserRoles – Maps users to their respective roles.
+Update the appsettings.json with a valid SQL connection string.
 
-8.Products – Stores product entries added by each farmer.
+Run the project. The app will:
 
-These scripts ensure all necessary tables are available and populated before the application runs.
+Migrate and seed the database
 
-***How to Run the Application
-1.Open the solution in Visual Studio 2022.
+Insert demo users and product entries
 
-2.Ensure that SQL Server 2022 is installed and configured.
+Set up default roles: Farmer and Employee
 
-3.Update the appsettings.json file with your valid SQL connection string.
+🧪 Sample Accounts
+Role	Email	Password
+Employee	employee@email.com	employee123!
+Farmer	farmer@email.com	Farmer123!
 
-4.Run the application — it will automatically:
+🔄 Navigation Workflow
+Employee Steps
+Login through /Identity/Account/Login.
 
-5.Apply database migrations.
+Navigate to the dashboard:
 
-6.Seed roles (Farmer, Employee).
+Manage farmer accounts
 
-7.Create demo users and products.
+Register new farmers
 
+Access the product filtering interface
 
-**Seeded Test Accounts
-Role	    Email	                Password
-Employee	employee@email.com	  employee123!
-Farmer	  farmer@email.com	    Farmer123!
+Farmer Steps
+Log in with farmer credentials.
 
+Use your dashboard to:
 
-**User Flow and Navigation Guide
---For Employees:
-1.Login through the /Identity/Account/Login page.
+Add or manage your product listings
 
-2.Access the Employee Dashboard to:
+Filter your data by category or date
 
-3.Manage Farmers: View and edit farmer profiles.
+📱 UI and Usability
+Designed to work across devices (desktop and mobile).
 
-4.Register New Farmer: Add a new farmer to the platform.
+Clean, intuitive layout powered by Bootstrap and styled using Bootswatch themes.
 
-5.Filter Products: Search and filter agricultural products.
+Autofill disabled on critical forms to enhance data privacy.
 
+User experience emphasizes clarity, speed, and accessibility.
 
---For Farmers:
-1.Login with your farmer account credentials.
+📁 Folder Layout (Simplified)
+/Models: Business entities and ViewModels
 
-2.Access the Farmer Dashboard to:
+/Controllers: Backend logic by role and feature
 
-3.Add, view, edit, or delete products.
+/Views: Razor UI views, grouped by modules
 
-View only your own data within the dashboard.
+/Data: DbContext and initial data configuration
 
-** User Interface & Experience
--The UI is responsive and accessible on both desktop and mobile devices.Autofill has been disabled on sensitive forms, such as employee-created farmer registrations.The platform follows enterprise software design principles and ensures a good user experience (UX).
+/Areas/Identity: Authentication and login flows
 
-** Project Structure
+🔗 Sources and Learning Material
+Microsoft Docs. “Using SSMS with Visual Studio.” https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms. Accessed 4 May 2025.
 
-Models/ — Contains Entity and ViewModel classes.
+Microsoft Docs. “Get started with EF Core in MVC.” https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro. Accessed 5 May 2025.
 
-Controllers/ — Role-based logic for managing dashboards, admin functions, and products.
+Microsoft Docs. “Intro to ASP.NET Identity.” https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity. Accessed 3 May 2025.
 
-Views/ — Razor views, organized by feature (e.g., product management, dashboards).
-
-Data/ — Contains ApplicationDbContext and seeding logic.
-
-Areas/Identity/ — Scaffolded ASP.NET Identity pages for login functionality.
-
-** References
-Microsoft Learn, 2020. Using SSMS 20 in Visual Studio Projects. [Online]
-Available at:https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms
-[Accessed 4 May 2025].
-
-Microsoft Learn, 2024. Tutorial: Get started with EF Core in an ASP.NET MVC web app. [Online]
-Available at: https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0
-[Accessed 5 May 2025].
-
-Microsoft Learn, 2025. Introduction to ASP.NET Identity. [Online]
-Available at: https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity
-[Accessed 3 May 2025].
-
-Author
-Student: ST10040092
-Module: Programming 3A — PROG7311
-Part: 2 — Web Application Prototype
+Bootswatch. “Themes for Bootstrap.” https://bootswatch.com/. Accessed 5 May 2025.
