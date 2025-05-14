@@ -17,16 +17,18 @@ Agri-Energy Connect is a secure, role-driven web application built with ASP.NET 
 
  2.  Technologies Implemented
     
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Category              | Technology                                 | Purpose & Rationale                                                                             |
-|-----------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------|
-| Framework             | ASP.NET Core MVC                           | Follows MVC architecture for clean code separation and easier maintainability.                  |
-| Object Relational Mapper | Entity Framework Core                   | Simplifies database creation and access using strongly-typed classes and supports migrations.   |
-| Authentication        | ASP.NET Identity with Roles                | Provides out-of-the-box user management and secure role-based access control.                   |
-| Frontend & Layout     | Razor Views, Bootstrap 5, Bootswatch       | Delivers a responsive, mobile-first UI with customizable themes for consistency and usability.  |
-| Development IDE       | Visual Studio 2022                         | Offers powerful development, debugging, and scaffolding features for ASP.NET Core projects.     |
-| Database              |   SSMS 20                                  | A scalable and enterprise-grade database engine ideal for transactional applications.           |
-
+| Category                 | Technology                                 | Purpose & Rationale                                                                             |
+|--------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------|
+| Framework                | ASP.NET Core MVC                           | Follows MVC architecture for clean code separation and easier maintainability.                  |
+| Object Relational Mapper | Entity Framework Core                      | Simplifies database creation and access using strongly typed classes and supports migrations.   |
+| Authentication           | ASP.NET Identity with Roles                | Provides out-of-the-box user management and secure role-based access control.                   |
+| Frontend & Layout        | Razor Views, Bootstrap 5, Bootswatch       | Delivers a responsive, mobile-first UI with customizable themes for consistency and usability.  |
+| Development IDE          | Visual Studio 2022                         | Offers powerful development, debugging, and scaffolding features for ASP.NET Core projects.     |
+| Database                 |   SSMS 20                                  | A scalable and enterprise-grade database engine ideal for transactional applications.           |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -97,6 +99,8 @@ AspNetUsers, AspNetRoles, AspNetUserRoles — for Identity management
 - Products — stores product listings  
 - FarmerAccountRequests — tracks pending farmer registration requests  
 
+---------------
+
 Initial Setup:
 
 ------------------
@@ -107,7 +111,10 @@ Tools → NuGet Package Manager → Package Manager Console
 Run: Update-Database
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Sample Users (Pre-Seeded):
+
+-----------------------------
 
  -Role	,Email	,Password    
                                       
@@ -126,6 +133,8 @@ Test records are preloaded for demonstration purposes.
 
 1.For Employees:
 
+-------------------
+
 Navigate to: /Identity/Account/Login
 
 -Log in using your Employee credentials.
@@ -140,7 +149,7 @@ Navigate to: /Identity/Account/Login
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- 1.For Farmers:
+ 1. For Farmers:
 -----------------
 -Log in with approved farmer credentials.
 
@@ -174,6 +183,7 @@ Note: Replace the link with your actual video.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 8.  Running the Application Locally
+   
 ---------------------------------------------
    
 System Requirements:
@@ -299,6 +309,9 @@ Secure by Design: Built-in CSRF protection and role validation layers.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 13.  Developer Setup Guide (Extended)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 This section offers a more detailed explanation for local development setup.
 
 Required Tools:
