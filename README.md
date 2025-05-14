@@ -111,9 +111,9 @@ Sample Users (Pre-Seeded):
 
  -Role	,Email	,Password    
                                       
--Employee	     employee1@example.com	     Employee123 
+-Employee	     ,employee1@example.com	     ,Employee123 
                                      
- -Farmer	       farmer1@example.com	      Farmer123   
+ -Farmer	       ,farmer1@example.com	      ,Farmer123   
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
