@@ -1,9 +1,9 @@
  Agri-Energy Connect — Web Application Prototype
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Student Name:** Nikhil Saroop  
-**Student Number:** ST10040092  
-**Module:** PROG7311 — Programming 3A  
-**Part:** 2 — Functional Web Application Development  
+Student Name: Nikhil Saroop  
+Student Number: ST10040092  
+Module: PROG7311 — Programming 3A  
+Part: 2 — Functional Web Application Development  
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -18,22 +18,22 @@ Agri-Energy Connect is a secure, role-driven web application built with ASP.NET 
  2.  Technologies Implemented
     
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Category              | Technology                                | Purpose & Rationale                                                                             |
+| Category              | Technology                                 | Purpose & Rationale                                                                             |
 |-----------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------|
 | Framework             | ASP.NET Core MVC                           | Follows MVC architecture for clean code separation and easier maintainability.                  |
-| Object Relational Mapper | Entity Framework Core (Code-First)     | Simplifies database creation and access using strongly-typed classes and supports migrations.   |
+| Object Relational Mapper | Entity Framework Core                   | Simplifies database creation and access using strongly-typed classes and supports migrations.   |
 | Authentication        | ASP.NET Identity with Roles                | Provides out-of-the-box user management and secure role-based access control.                   |
 | Frontend & Layout     | Razor Views, Bootstrap 5, Bootswatch       | Delivers a responsive, mobile-first UI with customizable themes for consistency and usability.  |
 | Development IDE       | Visual Studio 2022                         | Offers powerful development, debugging, and scaffolding features for ASP.NET Core projects.     |
-| Database              | SQL Server (via SSMS 20)                   | A scalable and enterprise-grade database engine ideal for transactional applications.           |
+| Database              |   SSMS 20                                  | A scalable and enterprise-grade database engine ideal for transactional applications.           |
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3. 📦 Installed Dependencies
+ 3.  Installed Dependencies
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Backend (via NuGet):
+* Backend (via NuGet):
 - `Microsoft.EntityFrameworkCore.SqlServer`  
 - `Microsoft.EntityFrameworkCore.Tools`  
 - `Microsoft.AspNetCore.Identity.EntityFrameworkCore`  
@@ -146,7 +146,7 @@ Filter your list by type or date
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-7. 🎥 Demo Video
+7.  Demo Video
 Watch a full demonstration of:
 
 Role-specific login flow
@@ -163,7 +163,7 @@ Note: Replace the link with your actual video.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-8. 🚀 Running the Application Locally
+8.  Running the Application Locally
 ---------------------------------------------
    
 System Requirements:
@@ -249,11 +249,31 @@ Module: PROG7311 — Programming 3A
 12.  References
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Microsoft Learn (2025). ASP.NET Identity Overview
 
-Microsoft Learn (2024). Entity Framework Core in ASP.NET MVC
 
-Bootswatch (2025). Free Bootstrap Themes
+- Microsoft Learn, 2024. *Tutorial: Get started with EF Core in an ASP.NET MVC web app*. [Online]  
+  Available at: [https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-9.0)  
+  [Accessed 9 May 2025].
+
+- Microsoft Learn, 2025. *Introduction to ASP.NET Identity*. [Online]  
+  Available at: [https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity](https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity)  
+  [Accessed 9 May 2025].
+
+- Microsoft Learn, 2024. *Download SQL Server Management Studio (SSMS)*. [Online]  
+  Available at: [https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)  
+  [Accessed 9 May 2025].
+
+- Bootswatch, 2025. *Free Themes for Bootstrap*. [Online]  
+  Available at: [https://bootswatch.com](https://bootswatch.com)  
+  [Accessed 9 May 2025].
+
+- Microsoft Learn, 2024. *What is ASP.NET Core MVC?*. [Online]  
+  Available at: [https://learn.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-9.0](https://learn.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-9.0)  
+  [Accessed 9 May 2025].
+
+- Microsoft Learn, 2025. *Secure user authentication in ASP.NET Core*. [Online]  
+  Available at: [https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-9.0](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-9.0)  
+  [Accessed 9 May 2025].
 
 
 
