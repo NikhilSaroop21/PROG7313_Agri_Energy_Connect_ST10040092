@@ -75,7 +75,7 @@ These libraries collectively enable secure authentication, database interaction,
 - Register and manage farmer profiles.
 - View all submitted products across the platform.
 - Apply filters by farmer, product type, or production date.
-- Approve or reject farmer registration requests.
+
 
 
 # Validation & Data Quality
