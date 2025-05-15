@@ -8,6 +8,6 @@
         public string Email { get; set; }
         public string UserId { get; set; }
 
-
+        public ICollection<Products> Products { get; set; } = new List<Products>();
     }
 }

@@ -336,12 +336,17 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Data.Migrations
             modelBuilder.Entity("PROG7313_Agri_Energy_Connect_ST10040092.Models.Products", b =>
                 {
                     b.HasOne("PROG7313_Agri_Energy_Connect_ST10040092.Models.Farmer", "Farmer")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("FarmerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Farmer");
+                });
+
+            modelBuilder.Entity("PROG7313_Agri_Energy_Connect_ST10040092.Models.Farmer", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

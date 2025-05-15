@@ -1,0 +1,166 @@
+﻿@model IEnumerable<PROG7313_Agri_Energy_Connect_ST10040092.Models.Products>
+@{
+    ViewBag.Title = "Farmer Products";
+    var farmers = ViewBag.Farmers as List<PROG7313_Agri_Energy_Connect_ST10040092.Models.Farmer>;
+    var selectedFarmer = ViewBag.SelectedFarmer as PROG7313_Agri_Energy_Connect_ST10040092.Models.Farmer;
+}
+
+<style>
+
+    body {
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9); /* light blue-green blend */
+        font-family: 'Fredoka', sans-serif;
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-farm {
+        max-width: 1300px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .page-title-farm {
+        text-align: center;
+        font-size: 38px;
+        font-weight: 700;
+        color: #007BFF; /* Blue */
+        margin-bottom: 35px;
+        position: relative;
+        text-shadow: 1px 1px #e0f7fa;
+    }
+
+    .farmer-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 40px;
+    }
+
+        .farmer-buttons a {
+            background-color: #FFF176; /* Yellow */
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .farmer-buttons a:hover {
+                background-color: #AED581; /* Green */
+                border-color: #007BFF;
+                color: #007BFF;
+            }
+
+    .no-products {
+        text-align: center;
+        background-color: #fffde7;
+        color: #444;
+        border: 2px dashed #ffeb3b;
+        padding: 25px;
+        border-radius: 12px;
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+    }
+
+    .product-grid-farm {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 28px;
+    }
+
+    .product-card-farm {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        padding: 22px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .product-card-farm:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card-farm img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #4CAF50; /* Green */
+            margin-bottom: 18px;
+        }
+
+    .product-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #007BFF;
+        margin-bottom: 8px;
+    }
+
+    .product-type {
+        font-size: 14px;
+        background-color: #81C784; /* Green */
+        color: white;
+        padding: 6px 14px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+    }
+
+    .product-meta {
+        font-size: 14px;
+        color: #555;
+        font-weight: 600;
+        margin: 5px 0;
+    }
+
+        .product-meta em {
+            font-style: normal;
+            color: #388E3C;
+        }
+</style>
+
+<div class="container-farm">
+    <h2 class="page-title-farm">
+        @(selectedFarmer != null ? $"Products by {selectedFarmer.Name}" : "🌾 All Farmer Products")
+    </h2>
+
+    <div class="farmer-buttons">
+        @foreach (var farmer in farmers)
+        {
+            <a asp-action="Index" asp-route-farmerId="@farmer.Id">@farmer.Name</a>
+        }
+        <a asp-action="Index">Show All 🌻</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="no-products">
+            😕 No products found for this farmer. Try another one or check back later!
+        </div>
+    }
+    else
+    {
+        <div class="product-grid-farm">
+            @foreach (var product in Model)
+            {
+                <div class="product-card-farm">
+                    <img src="@(!string.IsNullOrEmpty(product.ImagePath) ? product.ImagePath : Url.Content("~/images/no-image.png"))" alt="Product" />
+                    <div class="product-name">@product.Name</div>
+                    <div class="product-type">@product.Type</div>
+                    <div class="product-meta">📅 Date: @product.ProductionDate.ToShortDateString()</div>
+                    <div class="product-meta">👨‍🌾 Farmer: <em>@product.Farmer?.Name</em></div>
+                </div>
+            }
+        </div>
+    }
+</div>

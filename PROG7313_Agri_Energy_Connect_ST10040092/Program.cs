@@ -1,15 +1,14 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PROG7313_Agri_Energy_Connect_ST10040092.Data;
 using PROG7313_Agri_Energy_Connect_ST10040092.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Get the connection string from appsettings.json
+// Get connection string from appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-// Configure Entity Framework and SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -19,14 +18,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Seed roles, users, and farmer products
+// Seed roles, users, and products
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -44,9 +43,9 @@ using (var scope = app.Services.CreateScope())
         }
     }
 
-    // Seed employee
+    // Seed Employee
     var employeeEmail = "employee@email.com";
-    var employeePassword = "Pa$$w0rd!";
+    var employeePassword = "EmpSecurePa$$!";
     var employeeUser = await userManager.FindByEmailAsync(employeeEmail);
     if (employeeUser == null)
     {
@@ -55,9 +54,9 @@ using (var scope = app.Services.CreateScope())
         await userManager.AddToRoleAsync(newEmployee, "Employee");
     }
 
-    // Seed farmer 1
+    // Seed Farmer 1
     var farmerEmail = "farmer@email.com";
-    var farmerPassword = "Pa$$w0rd!";
+    var farmerPassword = "N3wSecurePa$$1!";
     var farmerUser = await userManager.FindByEmailAsync(farmerEmail);
     if (farmerUser == null)
     {
@@ -75,9 +74,9 @@ using (var scope = app.Services.CreateScope())
         await db.SaveChangesAsync();
     }
 
-    // Seed farmer 2
+    // Seed Farmer 2
     var secondFarmerEmail = "farmer2@email.com";
-    var secondFarmerPassword = "Pa$$w0rd!";
+    var secondFarmerPassword = "N3wSecurePa$$2!";
     var secondFarmerUser = await userManager.FindByEmailAsync(secondFarmerEmail);
     if (secondFarmerUser == null)
     {
@@ -95,11 +94,11 @@ using (var scope = app.Services.CreateScope())
         await db.SaveChangesAsync();
     }
 
-    // Seed fruit products for farmer 1
-    var seededFarmer = await db.Farmers.FirstOrDefaultAsync(f => f.Email == farmerEmail);
-    if (seededFarmer != null)
+    // Seed products for Farmer 1
+    var seededFarmer1 = await db.Farmers.FirstOrDefaultAsync(f => f.Email == farmerEmail);
+    if (seededFarmer1 != null)
     {
-        var existingProducts = db.Products.Where(p => p.FarmerId == seededFarmer.Id);
+        var existingProducts = db.Products.Where(p => p.FarmerId == seededFarmer1.Id);
         db.Products.RemoveRange(existingProducts);
         await db.SaveChangesAsync();
 
@@ -110,7 +109,7 @@ using (var scope = app.Services.CreateScope())
                 Type = "Fruit",
                 ProductionDate = new DateTime(2024, 9, 1),
                 ImagePath = "/images/products/apples.jpg",
-                FarmerId = seededFarmer.Id
+                FarmerId = seededFarmer1.Id
             },
             new Products
             {
@@ -118,7 +117,7 @@ using (var scope = app.Services.CreateScope())
                 Type = "Fruit",
                 ProductionDate = new DateTime(2024, 9, 10),
                 ImagePath = "/images/products/oranges.jpg",
-                FarmerId = seededFarmer.Id
+                FarmerId = seededFarmer1.Id
             },
             new Products
             {
@@ -126,7 +125,45 @@ using (var scope = app.Services.CreateScope())
                 Type = "Fruit",
                 ProductionDate = new DateTime(2024, 9, 15),
                 ImagePath = "/images/products/mangoes.jpg",
-                FarmerId = seededFarmer.Id
+                FarmerId = seededFarmer1.Id
+            }
+        );
+
+        await db.SaveChangesAsync();
+    }
+
+    // ✅ Seed products for Farmer 2
+    var seededFarmer2 = await db.Farmers.FirstOrDefaultAsync(f => f.Email == secondFarmerEmail);
+    if (seededFarmer2 != null)
+    {
+        var existingProducts = db.Products.Where(p => p.FarmerId == seededFarmer2.Id);
+        db.Products.RemoveRange(existingProducts);
+        await db.SaveChangesAsync();
+
+        db.Products.AddRange(
+            new Products
+            {
+                Name = "Organic Carrots",
+                Type = "Vegetable",
+                ProductionDate = new DateTime(2024, 8, 20),
+                ImagePath = "/images/products/carrots.jpg",
+                FarmerId = seededFarmer2.Id
+            },
+            new Products
+            {
+                Name = "Green Spinach",
+                Type = "Vegetable",
+                ProductionDate = new DateTime(2024, 8, 25),
+                ImagePath = "/images/products/spinach.jpg",
+                FarmerId = seededFarmer2.Id
+            },
+            new Products
+            {
+                Name = "Cherry Tomatoes",
+                Type = "Vegetable",
+                ProductionDate = new DateTime(2024, 9, 2),
+                ImagePath = "/images/products/tomatoes.jpg",
+                FarmerId = seededFarmer2.Id
             }
         );
 
@@ -134,6 +171,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -155,6 +193,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();

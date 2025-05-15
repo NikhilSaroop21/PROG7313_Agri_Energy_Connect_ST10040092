@@ -3,31 +3,189 @@
     ViewData["Title"] = "Add Product";
 }
 
-<h2>Add Product</h2>
+<style>
 
-<form asp-action="Create" enctype="multipart/form-data" class="card p-4 shadow-sm">
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+    body {
+        font-family: 'Fredoka', sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        margin: 0;
+        padding: 0;
+        color: #2c3e50;
+    }
+
+    .form-card {
+        max-width: 680px;
+        margin: 60px auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        animation: fadeIn 0.4s ease-in-out;
+        border: 3px solid #81C784; /* Green outline */
+    }
+
+
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .form-header {
+        background: linear-gradient(90deg, #007bff, #00bcd4);
+        color: white;
+        padding: 24px 30px;
+        text-align: center;
+    }
+
+        .form-header h2 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+    .form-body {
+        padding: 35px 40px;
+    }
+
+    .form-section {
+        background-color: #f9fbe7;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1.5px solid #dce1e7;
+        margin-bottom: 28px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #2e7d32;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+            outline: none;
+        }
+
+        .form-group span {
+            font-size: 0.85rem;
+            color: #e53935;
+            margin-top: 4px;
+            display: block;
+        }
+
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(to right, #007bff, #4CAF50); /* Blue to green */
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease, transform 0.2s;
+    }
+
+        .btn-submit:hover {
+            background: linear-gradient(to right, #0056b3, #388e3c);
+            transform: scale(1.02);
+        }
+
+    .btn-cancel {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin-top: 16px;
+        background-color: #ffca28; /* Yellow */
+        color: #333;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-cancel:hover {
+            background-color: #fbc02d;
+            color: #007BFF;
+        }
+
+
+    {
+        padding: 25px 20px;
+    }
+
+    .form-header h2 {
+        font-size: 22px;
+    }
+
+    }
+</style>
+
+<div class="form-card">
+    <div class="form-header">
+        <h2>🌾 Add a New Product</h2>
     </div>
-    <div class="mb-3">
-        <label asp-for="Type" class="form-label"></label>
-        <input asp-for="Type" class="form-control" />
-        <span asp-validation-for="Type" class="text-danger"></span>
+
+    <div class="form-body">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="form-section">
+                <div class="form-group">
+                    <label asp-for="Name">Product Name</label>
+                    <input asp-for="Name" type="text" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Type">Type of Product</label>
+                    <input asp-for="Type" type="text" />
+                    <span asp-validation-for="Type"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductionDate">Production Date</label>
+                    <input asp-for="ProductionDate" type="date" />
+                    <span asp-validation-for="ProductionDate"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Product Image</label>
+                    <input type="file" name="ImageFile" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">💾 Save Product</button>
+            <a asp-action="Index" class="btn-cancel">Cancel</a>
+        </form>
     </div>
-    <div class="mb-3">
-        <label asp-for="ProductionDate" class="form-label"></label>
-        <input asp-for="ProductionDate" type="date" class="form-control" />
-        <span asp-validation-for="ProductionDate" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Upload Image</label>
-        <input type="file" name="ImageFile" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -3,42 +3,185 @@
     ViewData["Title"] = "Edit Product";
 }
 
-<h2>Edit Product</h2>
+<style>
 
-<form asp-action="Edit" enctype="multipart/form-data" class="card p-4 shadow-sm">
-    <input type="hidden" asp-for="Id" />
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Type" class="form-label"></label>
-        <input asp-for="Type" class="form-control" />
-        <span asp-validation-for="Type" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="ProductionDate" class="form-label"></label>
-        <input asp-for="ProductionDate" type="date" class="form-control" />
-        <span asp-validation-for="ProductionDate" class="text-danger"></span>
-    </div>
-
-    @if (!string.IsNullOrEmpty(Model.ImagePath))
-    {
-        <div class="mb-3">
-            <label class="form-label">Current Image:</label><br />
-            <img src="@Model.ImagePath" class="img-thumbnail" style="max-height: 200px;" />
-        </div>
+    body {
+        font-family: 'Fredoka', sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        margin: 0;
+        padding: 0;
+        color: #2c3e50;
     }
 
-    <div class="mb-3">
-        <label class="form-label">Replace Image</label>
-        <input type="file" name="ImageFile" class="form-control" />
-    </div>
+    .form-wrapper {
+        max-width: 680px;
+        margin: 60px auto;
+        background: #ffffff;
+        padding: 40px 35px;
+        border-radius: 20px;
+        border: 3px solid #bbdefb;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        animation: fadeIn 0.5s ease;
+    }
 
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
-</form>
+
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .form-wrapper h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 28px;
+        color: #007bff;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2e7d32; /* Green */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            border: 2px solid #cfd9e8;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        .form-group span {
+            color: #e53935;
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: block;
+            font-weight: 500;
+        }
+
+    .current-img-preview {
+        max-height: 180px;
+        border-radius: 12px;
+        border: 2px solid #dee2e6;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 8px;
+    }
+
+    .btn-save {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(to right, #007bff, #4CAF50);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        letter-spacing: 0.4px;
+        transition: background 0.3s ease, transform 0.2s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+        .btn-save:hover {
+            background: linear-gradient(to right, #0056b3, #388e3c);
+            transform: scale(1.02);
+        }
+
+    .btn-cancel {
+        width: 100%;
+        padding: 12px;
+        margin-top: 14px;
+        font-size: 15px;
+        background-color: #ffca28; /* Yellow */
+        color: #333;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-cancel:hover {
+            background-color: #fbc02d;
+            color: #007BFF;
+        }
+
+   
+
+    {
+        margin: 30px 15px;
+        padding: 25px 20px;
+    }
+
+    }
+</style>
+
+<div class="form-wrapper">
+    <h2>✏️ Edit Product</h2>
+
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Name">Product Name</label>
+            <input asp-for="Name" type="text" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Type">Product Type</label>
+            <input asp-for="Type" type="text" />
+            <span asp-validation-for="Type"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProductionDate">Production Date</label>
+            <input asp-for="ProductionDate" type="date" />
+            <span asp-validation-for="ProductionDate"></span>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <div class="form-group">
+                <label>Current Image</label>
+                <img src="@Model.ImagePath" alt="Current Image" class="current-img-preview" />
+            </div>
+        }
+
+        <div class="form-group">
+            <label>Replace Image</label>
+            <input type="file" name="ImageFile" />
+        </div>
+
+        <button type="submit" class="btn-save">💾 Save Changes</button>
+        <a asp-action="Index" class="btn-cancel">Cancel</a>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
