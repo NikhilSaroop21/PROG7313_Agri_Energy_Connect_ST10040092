@@ -5,10 +5,12 @@ using PROG7313_Agri_Energy_Connect_ST10040092.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Get connection string from appsettings.json
+//  Get the connection string from appsettings.json or throw an exception if missing
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+
+//  Register the application's DbContext with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -20,6 +22,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
+//  Add MVC pattern support
 
 builder.Services.AddControllersWithViews();
 
@@ -107,7 +110,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Golden Apples",
                 Type = "Fruit",
-                ProductionDate = new DateTime(2024, 9, 1),
+                ProductionDate = new DateTime(2025, 9, 1),
                 ImagePath = "/images/products/apples.jpg",
                 FarmerId = seededFarmer1.Id
             },
@@ -115,7 +118,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Fresh Oranges",
                 Type = "Fruit",
-                ProductionDate = new DateTime(2024, 9, 10),
+                ProductionDate = new DateTime(2025, 9, 10),
                 ImagePath = "/images/products/oranges.jpg",
                 FarmerId = seededFarmer1.Id
             },
@@ -123,7 +126,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Sweet Mangoes",
                 Type = "Fruit",
-                ProductionDate = new DateTime(2024, 9, 15),
+                ProductionDate = new DateTime(2025, 9, 15),
                 ImagePath = "/images/products/mangoes.jpg",
                 FarmerId = seededFarmer1.Id
             }
@@ -145,7 +148,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Organic Carrots",
                 Type = "Vegetable",
-                ProductionDate = new DateTime(2024, 8, 20),
+                ProductionDate = new DateTime(2025, 8, 20),
                 ImagePath = "/images/products/carrots.jpg",
                 FarmerId = seededFarmer2.Id
             },
@@ -153,7 +156,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Green Spinach",
                 Type = "Vegetable",
-                ProductionDate = new DateTime(2024, 8, 25),
+                ProductionDate = new DateTime(2025, 8, 25),
                 ImagePath = "/images/products/spinach.jpg",
                 FarmerId = seededFarmer2.Id
             },
@@ -161,7 +164,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Cherry Tomatoes",
                 Type = "Vegetable",
-                ProductionDate = new DateTime(2024, 9, 2),
+                ProductionDate = new DateTime(2025, 9, 2),
                 ImagePath = "/images/products/tomatoes.jpg",
                 FarmerId = seededFarmer2.Id
             }

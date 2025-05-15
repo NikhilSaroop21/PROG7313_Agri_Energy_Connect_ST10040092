@@ -6,13 +6,15 @@ using PROG7313_Agri_Energy_Connect_ST10040092.Data;
 using PROG7313_Agri_Energy_Connect_ST10040092.Models;
 
 namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
-{
+{    // Restrict access to authenticated users with the 'Farmer' role
+
     [Authorize(Roles = "Farmer")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IWebHostEnvironment _env;
+        // Constructor with DI for DB context, Identity manager, and hosting environment
 
         public ProductsController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IWebHostEnvironment env)
         {
@@ -33,7 +35,7 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
             return View(products);
         }
 
-        // GET: Create
+        // Display the form for creating a new product
         public IActionResult Create()
         {
             return View();
@@ -48,6 +50,7 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
             var farmer = await _context.Farmers.FirstOrDefaultAsync(f => f.UserId == userId);
             if (farmer == null)
                 return NotFound("Farmer profile not found.");
+            // Save uploaded image if provided
 
             if (ImageFile != null && ImageFile.Length > 0)
             {
@@ -109,7 +112,7 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Delete
+        // Display confirmation page before deleting a product
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -120,7 +123,7 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
             return View(product);
         }
 
-        // POST: Delete Confirmed
+        // Finalize deletion of the product after confirmation
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -135,4 +138,3 @@ namespace PROG7313_Agri_Energy_Connect_ST10040092.Controllers
     }
 }
 
-// Compare this snippet from PROG7313_Agri_Energy_Connect_ST10040092/Models/Farmer.cs:
