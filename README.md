@@ -118,11 +118,11 @@ Sample Users (Pre-Seeded):
 
  -Role	,Email	,Password    
                                       
--Employee	     ,employee@example.com	     ,Pa$$w0rd! 
+-Employee	     ,employee@email.com	     ,EmpSecurePa$$!
 
--Farmer	       ,farmer@example.com	      ,Pa$$w0rd!   
+-Farmer	       ,farmer@email.com      ,N3wSecurePa$$1! 
                                      
- -Farmer	       ,farmer2@example.com	      ,Pa$$w0rd!   
+ -Farmer	       ,farmer2@email.com      ,N3wSecurePa$$2! 
 
 
 
@@ -182,7 +182,7 @@ Navigate to: /Identity/Account/Login
 -Account approval process
 
 -Demo Video on YouTube
-[Note: Replace the link with your actual video.](https://youtu.be/2bmpeF1VBCo)
+[[Note: Replace the link with your actual video.](https://youtu.be/2bmpeF1VBCo)](https://youtu.be/gjTmcqj5RIM)
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
