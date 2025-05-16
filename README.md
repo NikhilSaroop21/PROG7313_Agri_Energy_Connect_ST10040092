@@ -182,8 +182,7 @@ Navigate to: /Identity/Account/Login
 -Account approval process
 
 -Demo Video on YouTube
-[(https://youtu.be/gjTmcqj5RIM)](https://youtu.be/XAr2PKetZu0)](https://youtu.be/XAr2PKetZu0)
-
+https://youtu.be/XAr2PKetZu0
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
