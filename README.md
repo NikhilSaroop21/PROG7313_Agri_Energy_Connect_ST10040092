@@ -15,7 +15,7 @@
 ### 🆔 Student Number: ST10040092  
 ### 📘 Module: PROG7311 — Programming 3A  
 ### 🧾 Part 2 — Functional Web Application Development  
-**Version:** 1.0.0 | **Last Updated:** June 2025  
+Version:2.0. | 21 June 2025  
 
 ---
 
